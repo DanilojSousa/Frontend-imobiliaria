@@ -1,0 +1,451 @@
+#content_detalhe{
+    width: 100%;
+    background-color: #F8F9FA;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    .spinner{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 600px;
+        margin: auto; 
+    }
+    .cabecalho{
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        margin: auto;
+        .titulo_cabecalho{
+            margin-top: 20px;
+            font-size: 26px;
+            color: rgb(60, 72, 88);
+            font-weight: 400;
+            margin-bottom: 5px;
+            font-family: Montserrat, "Trebuchet MS", serif!important;
+            line-height: 1.15em;
+        }
+        .endereco{
+            font-size: 18px;
+            font-style: italic;
+            font-family: Montserrat, "Trebuchet MS", serif!important;
+            line-height: 1.15em;
+            color: rgb(60, 72, 88);
+            font-weight: 400;
+        }
+        .button_visita{
+            border-radius: 3px;
+            margin-top: 20px;
+            color: #DCE9F7;
+            background-color: #B4985F;
+        }
+    }
+    .fotos{
+        width: 90%;
+        margin: auto;
+        margin-top: 20px;
+        .imagens_grid{
+            /*transition: filter 0.3s ease;*/
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+       /* .imagens_grid:hover{
+            filter: brightness(50%);
+        }*/
+        .cobertura{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            color: rgb(255, 255, 255);
+            transition: visibility 0.3s ease;
+            inset: 0px;
+            font-size: 30px;
+            align-content: space-around;
+            z-index: 3;
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+        }
+        .cobertura:hover{
+            opacity: 1;
+            background-color: rgba(0, 0, 0, 0.5);
+            visibility: brightness(50%);
+        }
+        .informacoes_imagens{
+            width: 90%;
+            height: 100%;
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            z-index: 2;
+            .tipo{
+                background-color: #B4985F;
+                color: rgb(255, 255, 255);
+                padding: 10px 20px;
+                font-size: 16px;
+                margin: 5px;
+            }
+            .codigo{
+                background-color: rgba(48, 48, 62, 0.95);
+                color: rgb(255, 255, 255);
+                padding: 10px 20px;
+                font-size: 16px;
+                margin: 5px;
+            }
+            .quantidade{
+                background-color: rgba(0, 0, 0, 0.75);
+                color: rgb(255, 255, 255);
+                padding: 10px 20px;
+                font-size: 16px;
+                margin: 5px;
+            }
+            .mais_fotos{
+                padding: 5px;
+                border-radius: 4px;
+                background: rgba(0, 0, 0, 0.5) !important;
+                height: 20%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                cursor: pointer;
+                .icone{
+                    width: 50%;
+                    font-size: 25px;
+                    background: rgba(255, 255, 255, 0.1);
+                    color: #FFFFFF;
+                    border-radius: 50px;
+                    display: flex;
+                    justify-content: center;
+                }
+                .texto{
+                    margin-top: 10px;
+                    font-size: 14px;
+                    color: #FFFFFF;
+                }
+            }
+        }
+    }
+    .informacoes_imoveis{
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: auto;
+        margin-top: 20px;
+        .informacoes_icones{
+            display: flex;
+            width: 100%;
+            .bloco{
+                margin-right: 50px;
+                .icone{
+                    display: flex;
+                    justify-content: center;
+                    mat-icon{
+                        color: #4C2426;
+                    }
+                }
+                .bloco_texto{
+                    font-size: 14px;
+                    font-weight: 500;
+                    display: flex;
+                    flex-direction: column;
+                    -webkit-box-align: center;
+                    align-items: center;
+                    color: rgb(60, 72, 88);
+                }
+            }
+        }
+        .valor{
+            font-size: 30px;
+            font-weight: 500;
+            padding: 0px 30px;
+            color: #B4985F;
+            .tipo{
+                font-size: 16px;
+            }
+        }
+    }
+    .conteudo{
+        display: flex;
+        width: 90%;
+        height: 100%;
+        margin: auto;
+        margin-top: 50px;
+        justify-content: space-between;
+        .usuario{
+            display: flex;
+            flex-direction: column;
+            width: 25%;
+            height: 100%;
+            background-color: white;
+            color: rgb(60, 72, 88);
+            border: 1px solid rgba(226, 228, 232, 0.8);
+            .topo{
+                display: flex;
+                .perfil{
+                    margin: 10px;
+                    flex-shrink: 0;
+                    width: 50px;
+                    height: 50px;
+                    .imagemUsuario{
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 100%;
+                        overflow: hidden;
+                    }
+                    .imagem{
+                        width: 50px;
+                        height: 50px;
+                        background-image: url("../../../../../assets/user/user.png");
+                        background-repeat: no-repeat;
+                        border-radius: 100%;
+                        overflow: hidden;
+                    }
+                }
+                .informacoes_usuario{
+                    margin: 10px;
+                    .nome{
+                        width: 100%;
+                        font-size: 16px;
+                        font-weight: bold;
+                    }
+                    .telefone{
+                        color: rgb(23, 110, 200);
+                        display: flex;
+                        align-items: center;
+                        font-size: 14px;
+                        svg{
+                            padding-left: 5px;
+                        }
+                    }
+                    .email{
+                        cursor: pointer;
+                        color: inherit;
+                        font-size: 14px;
+                        transition: opacity 0.3s;
+                        will-change: opacity;
+                        opacity: 1;
+                    }
+                    .creci{
+                        cursor: pointer;
+                        color: inherit;
+                        font-size: 16px;
+                        transition: opacity 0.3s;
+                        will-change: opacity;
+                        opacity: 1;
+                    }
+                }
+            }
+            .form{
+                display: flex;
+                flex-direction: column;
+                width: 90%;
+                margin: auto;
+                div{
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    label{
+                        width: 100%;
+                        font-size: 14px;
+                        padding-top: 8px;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: unset;
+                    }
+                    input, textarea{
+                        border-radius: 2px;
+                        min-height: 40px;
+                        border: 1px solid rgba(226, 228, 232, 0.8);
+                        flex: 1 1 0%;
+                        outline: none;
+                        max-width: 100%;
+                        font-size: inherit;
+                        color: inherit;
+                        min-width: 1px;
+                        font-family: inherit;
+                        line-height: 1.15em;
+                        letter-spacing: 0.3px;
+                        word-spacing: -0.75px;
+                        padding-left: 5px;
+                    }
+                    input::placeholder {
+                        color: rgb(185, 183, 183); /* Cor desejada para o placeholder */
+                        opacity: 1; /* Para garantir que a cor aplicada seja visível */
+                      }
+                }
+                .buttons{
+                    display: flex;
+                    margin: auto;
+                    width: 100%;
+                    justify-content: space-between!important;
+                    flex-direction: row;
+                    margin: 10px 0 10px 0;
+                    .button_email{
+                        background-color: #B4985F;
+                        color: white;
+                        border-radius: 3px;
+                        width: 45%;
+                    }
+                    .button_whatsapp{
+                        background-color: #4C2426;
+                        color: white;
+                        border-radius: 3px;
+                        width: 45%;
+                        span{
+                            display: flex;
+                            align-items: center;
+                            svg{
+                                padding-right: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+        .dados_imoveis{
+            display: flex;
+            flex-direction: column;
+            width: 45%;
+            .divider{
+                border-top-width: 1px;
+                border-color: #8E959F; 
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            .bloco{
+                width: 100%;
+                h2{
+                    font-family: Montserrat, "Trebuchet MS", serif;
+                    line-height: 1.15em;
+                    font-weight: 500;
+                    font-size: 20px;
+                    margin-bottom: 20px;
+                    font-weight: bold;
+                    color: rgb(60, 72, 88);
+                }
+                p{
+                    color: rgb(60, 72, 88);
+                    line-height: 1.15em;
+                    letter-spacing: 0.3px;
+                    word-spacing: -0.75px;
+                    font-family: Montserrat, "Trebuchet MS", serif;
+                }
+                .bloco_comodo, .bloco_condominio, .bloco_proximidade{
+                    display: flex;
+                    flex-wrap: wrap;
+                    div{
+                        border-radius: 20px;
+                        padding: 0px 10px;
+                        margin: 5px;
+                        font-size: 14px;
+                        background-color: rgba(23, 110, 200, 0.15);
+                        border: 1px solid rgba(255, 255, 255, 0.2);
+                        white-space: nowrap;
+                        color: rgb(60, 72, 88);
+                    }
+                }
+            }
+        }
+        .ficha_imovel{
+            width: 25%;
+            h2{
+                font-family: Montserrat, "Trebuchet MS", serif;
+                line-height: 1.15em;
+                font-weight: 500;
+                font-size: 20px;
+                margin-bottom: 20px;
+                font-weight: bold;
+                color: rgb(60, 72, 88);
+            }
+            .bloco{
+                .bloco_valores{
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 14px;
+                    padding: 10px;
+                    color: rgb(60, 72, 88);
+                    line-height: 1.15em;
+                    letter-spacing: 0.3px;
+                    word-spacing: -0.75px;
+                    font-family: Montserrat, "Trebuchet MS", serif;
+                }
+                .fundo{
+                    background-color: rgba(231, 240, 249, 0.5);
+                }
+            }
+        }
+    }
+    .voltar{
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        color: #DCE9F7;
+        cursor: pointer;
+        background-color: #4C2426;
+        bottom: 20px;
+        right: 20px;  
+        z-index: 8;
+    }
+    .voltar:hover{
+        background-color: #633335;
+    }
+    
+}
+@media(max-width: 950px) {
+    .imagens_grid{
+        width: 100%!important;
+        height: 100%!important;
+    }
+    .mat-grid-tile:not(:first-of-type){
+        display: none!important;
+    }
+    .mat-grid-tile{
+        position: static!important;
+    }
+    .conteudo{
+        display: flex!important;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        .ficha_imovel, .dados_imoveis, .usuario{
+            width: 80%!important;
+            margin-bottom: 30px!important;
+        }
+    }
+}
+@media(max-width: 780px) {
+    .informacoes_imoveis{
+        display: flex!important;
+        flex-direction: column!important;
+        justify-content: center!important;
+        align-items: center!important;
+        .informacoes_icones{
+            display: flex!important;
+            width: 100%!important;
+            justify-content: center!important;
+            margin-bottom: 50px!important;
+            .bloco{
+                display: flex!important;
+                flex-direction: column!important;
+                align-items: flex-start!important;
+            }
+        }
+    }
+}
+@media(max-width: 550px) {
+    .cabecalho{
+        display: flex!important;
+        flex-direction: column-reverse!important;
+        align-items: center!important;
+    }
+}

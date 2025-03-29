@@ -1,0 +1,301 @@
+<div class="content_cadastro_imovel">
+  @if(spinner){
+    <div class="button">
+      <div class="voltar" (click)="voltar()">
+        <mat-icon fontIcon="arrow_back"></mat-icon>
+      </div>
+    </div>
+    <form (ngSubmit)="salvar()" novalidate>
+      <div>
+          <label for="imvDescricao"><span>*</span>Descrição</label>
+          <input type="text" 
+                required
+                #nome 
+                id="imvDescricao" 
+                placeholder="Descrição do Imovel" 
+                name="imvDescricao" 
+                [(ngModel)]="imovel.imvDescricao"
+                #descricao="ngModel"/>
+            @if(imovel.imvDescricao === undefined && valida){
+              <div class="error">
+                A descrição é obrigatória.
+              </div>
+            }
+      </div>
+      <div>
+          <label for="imvObservacao"><span>*</span>Observação</label>
+          <textarea type="text" 
+                    id="imvObservacao" 
+                    rows="5" 
+                    cols="50" 
+                    name="imvObservacao" 
+                    required 
+                    [(ngModel)]="imovel.imvObservacao">
+            </textarea>
+            @if(imovel.imvObservacao === undefined && valida){
+              <div class="error">
+                A observação é obrigatória.
+              </div>
+            }
+      </div>
+      <div>
+        <label for="imvValor"><span>*</span>Valor</label>
+        <input type="text" 
+                [(ngModel)]="valor" 
+                name="imvValor" 
+                id="imvValor" 
+                placeholder="R$ 0,00"
+                required
+                (valueChange)="onValueChangeValor($event)"
+                appCurrencyMask/>
+              @if(imovel.imvValor === undefined && valida){
+                <div class="error">
+                  O valor é obrigatório.
+                </div>
+              }
+      </div>
+      <div class="area">
+        <div>
+          <label for="imvAreaConstruida"><span>*</span>Área Construída</label>
+          <input type="text" 
+              class="input_number_valor"
+              [(ngModel)]="area" 
+              name="imvAreaConstruida" 
+              placeholder="0,00 m²"
+              required
+              (valueChange)="onValueChangeArea($event)"
+              appMetragemMask/>
+            @if(imovel.imvAreaConstruida === undefined && valida){
+              <div class="error">
+                A área construída é obrigatório.
+              </div>
+            }
+        </div>
+        <div>
+          <label for="imvAreaTotal"><span>*</span>Área Total</label>
+          <input type="text" 
+              class="input_number_valor"
+              [(ngModel)]="areaTotal" 
+              name="imvAreaTotal" 
+              placeholder="0,00 m²"
+              required
+              (valueChange)="onValueChangeAreaTotal($event)"
+              appMetragemMask/>
+            @if(imovel.imvAreaTotal === undefined && valida){
+              <div class="error">
+                A área total é obrigatório.
+              </div>
+            }
+        </div>
+      </div>
+      <div class="numbers">
+        <div>
+          <div>
+            <label for="imvDormitorio">Dormitório</label>
+            <input class="input_number" 
+                  type="number" 
+                  id="imvDormitorio" 
+                  name="imvDormitorio" 
+                  min="0"
+                  [(ngModel)]="imovel.imvDormitorio" />
+          </div>
+          <div>
+            <label for="imvBanheiro">Banheiro</label>
+            <input type="number" 
+                  class="input_number" 
+                  min="0" 
+                  id="imvBanheiro" 
+                  name="imvBanheiro" 
+                  [(ngModel)]="imovel.imvBanheiro" />
+          </div>
+          <div>
+            <label for="imvSuite">Suíte</label>
+            <input type="number" 
+                  class="input_number"
+                  id="imvSuite" 
+                  min="0"
+                  name="imvSuite" 
+                  [(ngModel)]="imovel.imvSuite" />
+          </div>
+          <div>
+            <label for="imvGaragem">Garagem</label>
+            <input type="number" 
+                  class="input_number" 
+                  id="imvGaragem" 
+                  min="0" 
+                  name="imvGaragem" 
+                  [(ngModel)]="imovel.imvGaragem" />
+          </div>
+        </div>
+        <div>
+          <div>
+            <label for="imvSalaJantar">Sala de jantar</label>
+            <input type="number" 
+                  class="input_number" 
+                  id="imvSalaJantar"
+                  min="0"
+                  name="imvSalaJantar" 
+                  [(ngModel)]="imovel.imvSalaJantar" />
+          </div>
+          <div>
+            <label for="imvSalaEstar">Sala de estar</label>
+            <input type="number" 
+                  class="input_number" 
+                  id="imvSalaEstar" 
+                  min="0"
+                  name="imvSalaEstar" 
+                  [(ngModel)]="imovel.imvSalaEstar" />
+          </div>
+          <div>
+            <label for="imvCozinha">Cozinha</label>
+            <input type="number" 
+                  class="input_number" 
+                  id="imvCozinha" 
+                  min="0"
+                  name="imvCozinha" 
+                  [(ngModel)]="imovel.imvCozinha" />
+          </div>
+          <div>
+            <label for="imvAreaServico">Área de serviço</label>
+            <input type="number" 
+                  class="input_number" 
+                  id="imvAreaServico" 
+                  min="0" 
+                  name="imvAreaServico" 
+                  [(ngModel)]="imovel.imvAreaServico" />
+          </div>
+        </div>
+      </div>
+      <section class="example-section">
+        <div>
+          <mat-checkbox class="example-margin" [(ngModel)]="imovel.imvGaragemCoberta" name="imvGaragemCoberta">Garagem Coberta</mat-checkbox>
+          <mat-checkbox class="example-margin" [(ngModel)]="imovel.imvBanheira" name="imvBanheira">Banheira</mat-checkbox>
+          <mat-checkbox class="example-margin" [(ngModel)]="imovel.imvPiscina" name="imvPiscina">Piscina</mat-checkbox>
+          <mat-checkbox class="example-margin" [(ngModel)]="imovel.imvHidromassagem" name="imvHidromassagem">Hidromassagem</mat-checkbox>
+          <mat-checkbox class="example-margin" [(ngModel)]="imovel.imvOfuro" name="imvOfuro">Ofurô</mat-checkbox>
+          <mat-checkbox class="example-margin" [(ngModel)]="imovel.imvDestaque" name="imvDestaque">Destaque</mat-checkbox>
+        </div>
+        <div>
+          <mat-checkbox class="example-margin" [(ngModel)]="imovel.imvMobiliado" name="imvMobiliado">Imobiliado</mat-checkbox>
+          <mat-checkbox class="example-margin" [(ngModel)]="imovel.imvEscriturado" name="imvEscriturado">Escriturado</mat-checkbox>
+          <mat-checkbox class="example-margin" [(ngModel)]="imovel.imvAverbado" name="imvAverbado">Averbado</mat-checkbox>
+          <mat-checkbox class="example-margin" [(ngModel)]="imovel.imvAceitaFinanciamento" name="imvAceitaFinanciamento">Aceita financiamento</mat-checkbox>
+          <mat-checkbox class="example-margin" [(ngModel)]="imovel.imvMinhaCasaMinhaVida" name="imvMinhaCasaMinhaVida">Minha casa minha vida</mat-checkbox>
+        </div>
+      </section>
+      <div class="select">
+        <label for="endereco"><span>*</span>Endereço</label>
+        <mat-select id="endereco" [(ngModel)]="imovel.endereco" required name="endereco" placeholder="Selecione">
+            @for (endereco of listaEndereco; track endereco; let i = $index) {
+                <mat-option [value]="endereco">{{endereco.endEndereco}}</mat-option>
+            }
+        </mat-select>
+        @if(imovel.endereco.endEndereco === undefined && valida){
+          <div class="error">
+            O endereço é obrigatório.
+          </div>
+        }
+      </div>
+      <div class="select">
+        <label for="negocio"><span>*</span>Negócio</label>
+        <mat-select id="negocio" [(ngModel)]="imovel.negocio" required name="negocio" placeholder="Selecione">
+            @for (negocio of listaNegocio; track negocio; let i = $index) {
+                <mat-option [value]="negocio">{{negocio.ngcDescricao}}</mat-option>
+            }
+        </mat-select>
+        @if(imovel.negocio.ngcDescricao === undefined && valida){
+          <div class="error">
+            O negócio é obrigatório.
+          </div>
+        }
+      </div>
+      <div class="select">
+        <label for="tipoImovel"><span>*</span>Tipo Imóvel</label>
+        <mat-select id="tipoImovel" [(ngModel)]="imovel.tipoImovel" required name="tipoImovel" placeholder="Selecione">
+            @for (tipoImovel of listaTipoImovel; track tipoImovel; let i = $index) {
+                <mat-option [value]="tipoImovel">{{tipoImovel.tpiDescricao}}</mat-option>
+            }
+        </mat-select>
+        @if(imovel.tipoImovel.tpiDescricao === undefined && valida){
+          <div class="error">
+            O tipo imóvel é obrigatório.
+          </div>
+        }
+      </div>
+      <div class="select">
+        <label for="localizacao">Localização</label>
+        <mat-select id="localizacao" [(ngModel)]="imovel.localizacaoPraia" name="localizacaoPraia" placeholder="Selecione">
+            <mat-option [value]="null">Selecione</mat-option>
+            @for (localizacao of listaLocalizacaoPraia; track localizacao; let i = $index) {
+                <mat-option [value]="localizacao">{{localizacao.lcpDescricao}}</mat-option>
+            }
+        </mat-select>
+      </div>
+      <div class="select">
+        <label for="imovelAreaLazer">Área de lazer</label>
+          <mat-select id="imovelAreaLazer" [(ngModel)]="imovel.areaLazer" name="areaLazer" multiple>
+            @for (lista of listaAreaLazer; track lista; let i = $index) {
+              <mat-option [value]="lista">{{lista.arlDescricao}}</mat-option>
+            }
+          </mat-select>
+      </div>
+      <div class="select">
+        <label for="imovelProximidade">Proximidade</label>
+          <mat-select id="imovelProximidade" [(ngModel)]="imovel.proximidade" name="proximidade" multiple>
+            @for (lista of listaProximidade; track lista; let i = $index) {
+              <mat-option [value]="lista">{{lista.prxDescricao}}</mat-option>
+            }
+          </mat-select>
+      </div>
+      <div class="select">
+        <label for="situacao_imovel"><span>*</span>Situação Imóvel</label>
+        <mat-select id="situacao_imovel" [(ngModel)]="imovel.situacaoImovel" required name="situacaoImovel" placeholder="Selecione">
+            @for (situacaoImovel of listaSituacaoImovel; track situacaoImovel; let i = $index) {
+                <mat-option [value]="situacaoImovel">{{situacaoImovel.stiDescricao}}</mat-option>
+            }
+        </mat-select>
+        @if(imovel.situacaoImovel.stiDescricao === undefined && valida){
+          <div class="error">
+            A situação imóvel é obrigatória.
+          </div>
+        }
+      </div>
+      <div class="select">
+        <label for="usuario"><span>*</span>Usuário</label>
+        <mat-select id="usuario" [(ngModel)]="imovel.usuario" required name="usuario" placeholder="Selecione">
+            @for (usuario of listaUsuario; track usuario; let i = $index) {
+                <mat-option [value]="usuario">{{usuario.usrNome}}</mat-option>
+            }
+        </mat-select>
+        @if(imovel.usuario.usrNome === undefined && valida){
+          <div class="error">
+            O usuário é obrigatório.
+          </div>
+        }
+      </div>
+      <div class="select">
+        <label for="situacao"><span>*</span>Situação</label>
+        <mat-select id="situacao" [(ngModel)]="imovel.imvAtivo" name="imvAtivo" placeholder="Selecione">
+            <mat-option [value]="ativo" selected>Ativo</mat-option>
+            <mat-option [value]="inativo">Inativo</mat-option>
+        </mat-select>
+        @if(imovel.imvAtivo === undefined && valida){
+          <div class="error">
+            A situação é obrigatório.
+          </div>
+        }
+      </div>
+      <div class="adicionar_imagens">
+        <div class="imagens" (click)="adicionarImagemDialog()">
+          <mat-icon fontIcon="add_a_photo"></mat-icon>
+          Adicionar imagens
+        </div>
+      </div>
+      <div>
+        <button class="button_salvar" mat-flat-button>Salvar</button>
+      </div>
+    </form>
+  }@else{
+    <mat-spinner></mat-spinner>
+  }
+</div>

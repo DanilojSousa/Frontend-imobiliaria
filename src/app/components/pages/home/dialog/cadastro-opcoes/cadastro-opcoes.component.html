@@ -1,0 +1,148 @@
+<div>
+    <h2 mat-dialog-title>{{titulo}}</h2>
+    <form (ngSubmit)="salvar()" novalidate>
+    <mat-dialog-content>
+            @if(tipoCadastro === "Condomínio"){
+                <div>
+                    <label for="conDescricao"><span>*</span>{{tipoCadastro}}</label>
+                        <input type="text" 
+                        required
+                        #nome 
+                        id="conDescricao" 
+                        placeholder="Descrição do condomínio"
+                        name="conDescricao" 
+                        [(ngModel)]="condominio.conDescricao"
+                        #descricao="ngModel"/>
+                    @if(valida){
+                        <div class="error">
+                        A descrição é obrigatória.
+                        </div>
+                    }
+                </div>
+                <div class="select">
+                    <label for="endereco"><span>*</span>Endereço</label>
+                    <mat-select id="endereco" [(ngModel)]="condominio.endereco" required name="endereco" placeholder="Selecione">
+                        @for (endereco of listaEndereco; track endereco; let i = $index) {
+                            <mat-option [value]="endereco">{{endereco.endEndereco}}</mat-option>
+                        }
+                    </mat-select>
+                    @if(valida){
+                      <div class="error">
+                        O endereço é obrigatório.
+                      </div>
+                    }
+                </div>
+            }@else if(tipoCadastro === "Localização Praia"){
+                <div>
+                    <label for="lcpDescricao"><span>*</span>{{tipoCadastro}}</label>
+                        <input type="text" 
+                        required
+                        #nome 
+                        id="lcpDescricao" 
+                        placeholder="Descrição da localização"
+                        name="lcpDescricao" 
+                        [(ngModel)]="localizacaoPraia.lcpDescricao"
+                        #descricao="ngModel"/>
+                    @if(valida){
+                        <div class="error">
+                        A descrição é obrigatória.
+                        </div>
+                    }
+                </div>
+            }@else if(tipoCadastro === "Negócio"){
+                <div>
+                    <label for="ngcDescricao"><span>*</span>{{tipoCadastro}}</label>
+                        <input type="text" 
+                        required
+                        #nome 
+                        id="ngcDescricao" 
+                        placeholder="Descrição do negócio"
+                        name="ngcDescricao" 
+                        [(ngModel)]="negocio.ngcDescricao"
+                        #descricao="ngModel"/>
+                    @if(valida){
+                        <div class="error">
+                        A descrição é obrigatória.
+                        </div>
+                    }
+                </div>
+            }@else if(tipoCadastro === "Tipo Imóvel"){
+                <div>
+                    <label for="tpiDescricao"><span>*</span>{{tipoCadastro}}</label>
+                        <input type="text" 
+                        required
+                        #nome 
+                        id="tpiDescricao" 
+                        placeholder="Descrição do tipo imóvel"
+                        name="tpiDescricao" 
+                        [(ngModel)]="tipoImovel.tpiDescricao"
+                        #descricao="ngModel"/>
+                    @if(valida){
+                        <div class="error">
+                        A descrição é obrigatória.
+                        </div>
+                    }
+                </div>
+            }@else if(tipoCadastro === "Situação Imóvel"){
+                <div>
+                    <label for="stiDescricao"><span>*</span>{{tipoCadastro}}</label>
+                        <input type="text" 
+                        required
+                        #nome 
+                        id="stiDescricao" 
+                        placeholder="Descrição da situação do imóvel"
+                        name="stiDescricao" 
+                        [(ngModel)]="situacaoImovel.stiDescricao"
+                        #descricao="ngModel"/>
+                    @if(valida){
+                        <div class="error">
+                        A descrição é obrigatória.
+                        </div>
+                    }
+                </div>
+            }@else if(tipoCadastro === "Àrea de Lazer"){
+                <div>
+                    <label for="arlDescricao"><span>*</span>{{tipoCadastro}}</label>
+                        <input type="text" 
+                        required
+                        #nome 
+                        id="arlDescricao" 
+                        placeholder="Descrição da àrea de lazer"
+                        name="arlDescricao" 
+                        [(ngModel)]="areaLazer.arlDescricao"
+                        #descricao="ngModel"/>
+                    @if(valida){
+                        <div class="error">
+                        A descrição é obrigatória.
+                        </div>
+                    }
+                </div>
+            }@else if(tipoCadastro === "Proximidade"){
+                <div>
+                    <label for="prxDescricao"><span>*</span>{{tipoCadastro}}</label>
+                        <input type="text" 
+                        required
+                        #nome 
+                        id="prxDescricao" 
+                        placeholder="Descrição da proximidade"
+                        name="prxDescricao" 
+                        [(ngModel)]="proximidade.prxDescricao"
+                        #descricao="ngModel"/>
+                    @if(valida){
+                        <div class="error">
+                        A descrição é obrigatória.
+                        </div>
+                    }
+                </div>
+            }
+        </mat-dialog-content>
+        <mat-dialog-actions>
+            <button mat-button class="salvar">
+                <mat-icon fontIcon="save"></mat-icon>
+            </button>
+            <div mat-button class="close" (click)="close()">
+                <mat-icon fontIcon="close"></mat-icon>
+            </div>
+        </mat-dialog-actions>
+    </form>
+</div>

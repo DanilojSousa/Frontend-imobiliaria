@@ -1,0 +1,101 @@
+<div class="content_cadastro_endereco">
+    <div class="button">
+        <div class="voltar" (click)="voltar()">
+            <mat-icon fontIcon="arrow_back"></mat-icon>
+        </div>
+    </div>
+      <form (ngSubmit)="salvar()" novalidate>
+        <div>
+            <label for="endEndereco"><span>*</span>Endereço</label>
+            <input type="text" 
+                required
+                id="endEndereco" 
+                placeholder="Digite o endereço" 
+                name="endEndereco" 
+                [(ngModel)]="endereco.endEndereco"/>
+            @if(endereco.endEndereco === undefined && valida){
+                <div class="error">
+                O endereço é obrigatório.
+                </div>
+            }
+        </div>
+        <div class="input_number">
+            <label for="endNumero">N°</label>
+            <input type="text" 
+                id="endNumero" 
+                placeholder="Número" 
+                name="endNumero" 
+                [(ngModel)]="endereco.endNumero"/>
+        </div>
+        <div>
+            <label for="endBairro"><span>*</span>Bairro</label>
+            <input type="text" 
+                  required
+                  id="endBairro" 
+                  placeholder="Digite o bairro" 
+                  name="endBairro" 
+                  [(ngModel)]="endereco.endBairro"/>
+            @if (endereco.endBairro === undefined && valida) {
+                <div class="error">
+                    O bairro é obrigatório.
+                </div>
+            }      
+        </div>
+        <div>
+            <label for="endComplemento">Complemento</label>
+            <input type="text" 
+                  id="endComplemento" 
+                  placeholder="Digite o Complemento" 
+                  name="endComplemento" 
+                  [(ngModel)]="endereco.endComplemento"/>                  
+        </div>
+        <div>
+            <label for="endCep"><span>*</span>CEP</label>
+            <input type="text" 
+                  id="endCep" 
+                  placeholder="Digite o CEP" 
+                  name="endCep" 
+                  [(ngModel)]="endereco.endCep"
+                  (input)="checarCep(endereco.endCep)"
+                  maxlength="9"/>  
+                @if (endereco.endCep === undefined && valida) {
+                    <div class="error">
+                        O Cep é obrigatório.
+                    </div>
+                }       
+        </div>
+        
+        <div class="select">
+          <label for="estado"><span>*</span>Estado</label>
+          <mat-select id="estado" [(ngModel)]="estado" required name="estado" placeholder="Selecione">
+              @for (estado of listaEstado; track estado; let i = $index) {
+                  <mat-option [value]="estado" (click)="carregaCidade(estado.estCodigo)">{{estado.estDescricao}}</mat-option>
+              }
+          </mat-select>
+          @if(endereco.cidade.estado.estDescricao === undefined && valida){
+            <div class="error">
+              O estado é obrigatório.
+            </div>
+          }
+        </div>
+        @if(listaCidade.length > 0){
+        <div class="select">
+            <label for="cidade"><span>*</span>Cidade</label>
+            <mat-select id="cidade" [(ngModel)]="endereco.cidade" required name="cidade" placeholder="Selecione">
+                @for (cidade of listaCidade; track cidade; let i = $index) {
+                    <mat-option [value]="cidade">{{cidade.cidDescricao}}</mat-option>
+                }
+            </mat-select>
+            @if(endereco.cidade.cidDescricao === undefined && valida){
+              <div class="error">
+                A cidade é obrigatório.
+              </div>
+            }
+          </div>
+        }
+        <div>
+          <button class="button_salvar" mat-flat-button>Salvar</button>
+        </div>
+      </form>
+  </div>
+    

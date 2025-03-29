@@ -1,0 +1,53 @@
+<div id="content_sobre">
+    <div class="titulo">
+        <h1>Sobre Nós</h1>
+    </div>
+    <div class="conteudo">
+        <p>Torres Negócios Imobiliários</p>
+        <p>Fundada em 2023, a Torres Negócios Imobiliários nasceu de um sonho compartilhado 
+        por dois amigos visionários, Eloy Eduardo Machado e Gil Norton Amorim. Mais do que uma 
+        imobiliária, a Torres foi criada com o propósito de transformar vidas, ajudando pessoas 
+        a encontrar não apenas imóveis, mas lares onde suas histórias possam florescer.</p>
+
+        <p>Desde o primeiro dia, carregamos em nosso coração a missão de proporcionar felicidade 
+        e qualidade de vida a cada cliente. Sabemos que a escolha de um imóvel é muito mais do 
+        que uma transação comercial: é a realização de sonhos, o início de uma nova etapa, um 
+        recomeço cheio de esperança.</p>
+
+        <p>Com valores sólidos e inegociáveis, construímos nossa trajetória com base em:
+            @if(!mostraTexto){
+                <a (click)="mostrarTexto()">ler mais...</a>
+            }
+        </p>
+        
+        @if(mostraTexto){
+            <p>Confiança: Porque cada cliente merece transparência e segurança em suas escolhas.
+            Excelência: Garantindo que cada detalhe seja tratado com o máximo cuidado e profissionalismo.
+            Humanização: Reconhecendo que cada história é única e merece ser acolhida com empatia e dedicação.
+            Ao longo de nossa jornada, vimos sorrisos se abrirem ao receber as chaves de uma nova casa, famílias 
+            celebrarem conquistas e empresas iniciarem projetos em imóveis cuidadosamente selecionados 
+            por nós. Esses momentos nos inspiram e nos lembram diariamente de que nossa missão é mais do 
+            que negociar propriedades – é transformar espaços em lares, onde sonhos ganham vida.</p>
+
+            <p>Com o lançamento do nosso portal Casa Nova, em 2025, damos mais um passo em direção ao 
+            futuro. Criamos uma plataforma moderna e intuitiva, pensada para conectar pessoas ao 
+            imóvel perfeito de forma simples e acessível. Porque acreditamos que cada cliente merece 
+            o melhor, seja na busca por um terreno, uma casa aconchegante, um apartamento ou um espaço 
+            comercial.</p>
+
+            <p>A Torres Negócios Imobiliários é movida pela paixão de ajudar pessoas a construírem suas 
+            histórias. E, para nós, não há nada mais gratificante do que saber que, de alguma forma, 
+            fazemos parte de momentos tão especiais na vida de nossos clientes.</p>
+
+            <p>Convidamos você a embarcar nessa jornada conosco. Deixe-nos ajudar a abrir as portas 
+            do seu próximo capítulo, porque aqui, transformamos sonhos em realidade e imóveis em lares.</p>
+
+            <p>Torres Negócios Imobiliários – Transformando vidas, um lar de cada vez, desde 2023.
+                @if(mostraTexto){
+                    <a (click)="mostrarTexto()">ler menos...</a>
+                }
+            </p>
+        }
+    </div>
+    <div class="imagem_fundo"></div>
+</div>

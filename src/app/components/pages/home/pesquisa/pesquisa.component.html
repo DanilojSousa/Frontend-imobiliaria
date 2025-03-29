@@ -1,0 +1,112 @@
+<div id="pesquisa">
+    <div class="pesquisa_form">
+        <div class="titulo">
+            <p>Encontre seu imóvel ideal</p>
+        </div>
+        <div class="formulario">
+            <form class="form" #myForm="ngForm">
+                <div class="linha1_formulario">
+                    <div>
+                        <label for="negocio">Negócio</label>
+                        <mat-select id="negocio" [formControl]="listaNegocioSelecionado" name="ngcCodigo" placeholder="Selecione">
+                            <mat-option [value]="null">Selecione</mat-option>
+                            @for (negocio of listaNegocio; track negocio; let i = $index) {
+                                <mat-option [value]="negocio">{{negocio.ngcDescricao}}</mat-option>
+                            }
+                        </mat-select>
+                    </div>
+
+                    <div>
+                        <label for="tipoImovel">Tipo do Imóvel</label>
+                        <mat-select id="tipoImovel" [formControl]="listaTipoImovelSelecionado" name="tpiCodigo" placeholder="Selecione">
+                            <mat-option [value]="null" selected>Selecione</mat-option>
+                            @for (tipo of listaTipoImovel; track tipo; let i = $index) {
+                                <mat-option [value]="tipo">{{tipo.tpiDescricao}}</mat-option>
+                            }
+                        </mat-select>
+                    </div>
+                    <div>
+                        <label for="minimo">Valor mínimo:</label>
+                        <input type="text" 
+                               [(ngModel)]="pesquisaFiltradaImovel.valorMinimo" 
+                               name="valorMinimo" 
+                               id="minimo" 
+                               placeholder="R$ 0,00"
+                               appCurrencyMask
+                               (valueChange)="valorMinimo($event)"/>
+                    </div>
+                    <div>
+                        <label for="maximo">Valor máximo:</label>
+                        <input type="text" 
+                               [(ngModel)]="pesquisaFiltradaImovel.valorMaximo" 
+                               name="valorMaximo" 
+                               id="maximo" 
+                               placeholder="R$ 0,00"
+                               appCurrencyMask
+                               (valueChange)="valorMaximo($event)"/>
+                    </div>
+                </div>
+                <div class="linha2_formulario">
+                    <div>
+                        <label for="cidade">Cidade</label>
+                        <mat-select id="cidade" 
+                        [formControl]="listaCidadeSelecionado" 
+                        name="cidCodigo"
+                        placeholder="Selecione"
+                        (selectionChange)="carregaEnderecoSelecionado()">
+                            @for (estado of listaEstadoCidade; track estado; let i = $index) {
+                                <mat-optgroup label="{{estado.estDescricao}}">
+                                    @for (cidade of estado.cidade; track cidade; let i = $index) {
+                                        <mat-option [value]="cidade">{{cidade.cidDescricao}}</mat-option>
+                                    }
+                                </mat-optgroup>
+                            }
+                        </mat-select>
+                    </div>
+                    <div>
+                        <label for="endereco">Bairro</label>
+                        <mat-select id="endereco" 
+                        [formControl]="listaEnderecoSelecionado" 
+                        name="endCodigo"
+                        placeholder="Selecione"
+                        multiple
+                        (selectionChange)="carregaCondominioSelecionado()">
+                        <mat-select-trigger>
+                            {{listaEnderecoSelecionado.value?.[0]?.endEndereco || ''}}
+                            @if ((listaEnderecoSelecionado.value?.length || 0) > 1) {
+                              <span class="example-additional-selection">
+                                (+{{(listaEnderecoSelecionado.value?.length || 0) - 1}} {{listaEnderecoSelecionado.value?.length === 2 ? 'outro' : 'outros'}})
+                              </span>
+                            }
+                          </mat-select-trigger>
+                            @for (end of listaEndereco; track end; let i = $index) {
+                                <mat-option [value]="end">{{end.endEndereco}}</mat-option>
+                            }
+                        </mat-select>
+                    </div>
+                    <div>
+                        <label for="condominio">Condomínios</label>
+                        <mat-select id="condominio" 
+                                    [formControl]="listaCondominioSelecionado" 
+                                    name="conCodigo" 
+                                    placeholder="Selecione"
+                                    multiple>
+                            <mat-select-trigger>
+                                {{listaCondominioSelecionado.value?.[0]?.conDescricao || ''}}
+                                @if ((listaCondominioSelecionado.value?.length || 0) > 1) {
+                                  <span class="example-additional-selection">
+                                    (+{{(listaCondominioSelecionado.value?.length || 0) - 1}} {{listaCondominioSelecionado.value?.length === 2 ? 'outro' : 'outros'}})
+                                  </span>
+                                }
+                              </mat-select-trigger>
+                            @for (cond of listaCondominio; track cond; let i = $index) {
+                                <mat-option [value]="cond">{{cond.conDescricao}}</mat-option>
+                            }
+                        </mat-select>
+                    </div>
+                </div>
+                <button (click)="pesquisaFiltrada()">Pesquisar</button>
+            </form>
+        </div>
+    </div>
+</div>

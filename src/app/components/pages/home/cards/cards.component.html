@@ -1,0 +1,58 @@
+
+<div id="imagem-container">
+    <div class="alinhamento">
+        <div class="arrow-left" (click)="navegarImagem('prev')">&#10094;</div>
+        <div class="conteudo">
+          @for(imovel of imovelLancamento; track imovel; let i = $index){
+                <div class="informacoes" [class.opacity]="i !== indexImagemAtiva">
+                    <h1 class="lancamento">{{imovel.situacaoImovel.stiDescricao}}</h1>
+                    <h2 class="descricao">{{imovel.imvDescricao}}</h2>
+                    <p class="bairro">{{imovel.endereco.endBairro}} - {{imovel.endereco.cidade.cidDescricao}}</p>
+                    <p class="valor">{{imovel.imvValor | currency: 'BRL':'symbol':'1.2-2'}}</p>
+                    <p class="observacao">{{imovel.imvObservacao}}</p>
+                    <div class="detalhes_imoveis">
+                        <div>
+                            @if(imovel.imvBanheiro != undefined){
+                                <p class="banheiro">{{imovel.imvBanheiro}} Banheiro</p>
+                            }
+                            @if(imovel.imvGaragem != undefined){
+                                <p class="garagem">{{imovel.imvGaragem}} Garagem</p>
+                            }
+                            @if(imovel.imvAreaTotal != undefined){
+                                <p class="garagem">{{imovel.imvAreaTotal}} m² (Àrea Total)</p>
+                            }
+                        </div>
+                        <div>
+                            @if(imovel.imvDormitorio != undefined){
+                                <p class="dormitorio">{{imovel.imvDormitorio}} Dormitório</p>
+                            }
+                            @if(imovel.imvSuite){
+                                <p suite>{{imovel.imvSuite}} Suíte</p>
+                            }
+                        </div>
+                    </div>
+                    <mat-divider class="divider"></mat-divider>
+                    <div class="buttons">
+                        <button class="detalhes" (click)="detalhes(imovel)" mat-flat-button>Detalhes</button>
+                        <button class="comprar" (click)="formataWatssap(imovel)" mat-flat-button>Comprar</button>
+                    </div>
+                </div>
+                <div class="imagens">
+                  <img [class.img1]="i === 1" [class.img2]="i === 4" [class.img3]="i === 5"
+                      [src]="mostraImagem(imovel.imgCodigo)"
+                      width="100%" height="100%" [class.opacity]="i !== indexImagemAtiva"/>
+              </div>
+              }
+        </div>
+        <div class="arrow-right" (click)="navegarImagem('next')">&#10095;</div>
+    </div>
+    <div class="botoes-controle">
+        @for(imagem of imovelLancamento; track imagem; let i = $index){
+        <div mat-button class="button_slide"
+            [class.ativo]="i === indexImagemAtiva"
+            (click)="pararTimer(); ativarImagem(i)">
+        </div>
+    }
+
+    </div>
+</div>

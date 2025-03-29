@@ -1,0 +1,150 @@
+.content_area_lazer{
+    width: 100%;
+    min-height: 600px;
+    display: flex;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    .button{
+      margin-bottom: 20px;
+      margin-top: 50px;
+      display: flex;
+      justify-content: space-evenly;
+      .novo_cadastro, .voltar{
+          width: 40px;
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 100%;
+          color: #DCE9F7;
+          cursor: pointer;
+      }
+      .novo_cadastro{
+          background-color: #299229;
+          margin-right: 10px;
+      }
+      .voltar{
+          background-color: #007BFF;
+      }
+      .novo_cadastro:hover{
+          background-color: #268526;
+      }
+      .voltar:hover{
+          background-color: #0a69cf;
+      }
+  }
+    .example-container {
+        position: relative;
+      }
+      
+      .example-table-container {
+        position: relative;
+        min-height: 200px;
+        max-height: 400px;
+        overflow: auto;
+      }
+      
+      table {
+        width: 100%;
+      }
+      
+      .example-loading-shade {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 56px;
+        right: 0;
+        background: rgba(0, 0, 0, 0.15);
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .example-rate-limit-reached {
+        max-width: 360px;
+        text-align: center;
+      }
+      
+      /* Column Widths */
+      .mat-column-number,
+      .mat-column-state {
+        width: 64px;
+      }
+      
+      .mat-column-created {
+        width: 124px;
+      }
+      .icones{
+        display: flex;
+        .detalhe{
+            mat-icon{
+            background-color: #176EC8;
+            border-radius: 100%;
+            width: 30px;
+            height: 30px;
+            font-size: 18px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            }                 
+        }
+        .delete{
+            mat-icon{
+                background-color: red;
+                border-radius: 100%;
+                width: 30px;
+                height: 30px;
+                font-size: 18px;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-left: 10px;
+                cursor: pointer;
+            }
+        }
+        .detalhe{
+            mat-icon:hover{
+                background-color: #145ead;     
+            }
+        }
+        .delete{
+            mat-icon:hover{
+                background-color: rgb(199, 3, 3);     
+            }
+        }
+        .example-section {
+            display: flex;
+            align-content: center;
+            align-items: center;
+            margin-left: 10px;
+        }
+    }
+    .spinner{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-height:  600px;
+      margin: auto;
+  }
+    .acao{
+        display: flex;
+        align-items: center;
+        .spinner_acao{
+            display: flex;
+            align-content: center;
+            align-items: center;
+            margin-left: 50px;
+            width: 30px;
+            height: 30px;
+        }
+    }
+  }

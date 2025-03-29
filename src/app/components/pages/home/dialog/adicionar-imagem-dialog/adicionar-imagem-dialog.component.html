@@ -1,0 +1,63 @@
+<div class="content_adicionar_imagem_dialog">
+    <div class="upload">
+        <div class="upload-container" matTooltip="Arraste suas imagens aqui ou clique para selecionar">
+            <mat-card>
+            <mat-card-content>
+                <mat-icon>cloud_upload</mat-icon>
+                <p>Arraste suas imagens PNG aqui ou clique para selecionar</p>
+                <input
+                type="file"
+                accept="image/png"
+                multiple
+                (change)="onFileSelect($event)"
+                hidden
+                #fileInput
+                />
+                <button mat-button (click)="fileInput.click()">Selecionar Arquivos</button>
+            </mat-card-content>
+            </mat-card>
+        </div>
+        
+        <div class="drop-zone"
+            (dragover)="onDragOver($event)"
+            (drop)="onDrop($event)"
+            >
+                Solte os arquivos aqui!
+        </div>
+    </div>
+    <div class="lista_imagens">
+        <form (ngSubmit)="fecharDialog()">
+            <mat-radio-group
+                aria-labelledby="example-radio-group-label"
+                class="example-radio-group"
+                name="index"
+                [(ngModel)]="index">
+                @for (imagens of imovel.imagens; track imagens; let i = $index) {
+                    <div class="imagens">
+                        <div>
+                            <img [src]="mostrarImagem(imagens.imgImagem)" width="100" height="100"/>
+                        </div>
+                        @if(imagens.imgCodigo != null){
+                            <div>
+                                Ref: {{imagens.imgCodigo}}
+                            </div>
+                        }
+                        <div>
+                            <mat-radio-button class="example-radio-button" [checked]="imagens.imgPrincipal" [value]="i">Imagem Principal</mat-radio-button>
+                        </div>
+                        <div class="icone_delete" (click)="deletarImagens(i)">
+                            <mat-icon fontIcon="delete"></mat-icon>
+                        </div>
+                    </div>
+                    <mat-divider class="divider"></mat-divider>
+                }
+            </mat-radio-group>
+            @if(imovel.imagens.length > 0){
+                <div class="button">
+                    <button class="floating-button" mat-flat-button>Salvar</button>
+                    <div class="limpar_tudo" (click)="limparTudo()">Limpar tudo</div>
+                </div>
+            }
+        </form>
+    </div>
+</div>

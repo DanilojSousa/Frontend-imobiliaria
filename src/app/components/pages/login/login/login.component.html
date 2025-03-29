@@ -1,0 +1,74 @@
+<div class="close" (click)="closeSair()">&#x2716;</div>
+<div class="conteiner_login">
+  @if(carregaPagina){
+    <div class="conteudo">
+        <div class="logo">
+            <div>
+              <img [src]="mostrarImagem()"/>
+            </div>
+        </div>
+        <div class="formulario">
+            <p>{{config.titulo}}</p>
+            <form [formGroup]="loginForm"
+                  (ngSubmit)="onSubmit()">
+              @if(config.recuperarSenha){
+                <mat-form-field class="example-form-field email">
+                  <mat-label>E-mail</mat-label>
+                  <input matInput required="true" formControlName="email" type="text">
+                </mat-form-field>
+              }
+              @if(!config.novaSenha && !config.recuperarSenha){
+                <mat-form-field class="example-form-field email">
+                  <mat-label>CPF / Email / Nome</mat-label>
+                  <input matInput required="true" formControlName="login" type="text">
+                </mat-form-field>
+              }
+              @if(config.novaSenha || !config.recuperarSenha){
+                <mat-form-field class="example-form-field senha">
+                  <mat-label>Senha</mat-label>
+                  <input matInput required="true"
+                         formControlName="senha"
+                         [type]="hide ? 'password' : 'text'">
+                        </mat-form-field>
+                        <mat-icon class="mat-icon"
+                             (click)="clickEvent($event)">
+                             {{hide ? 'visibility_off' : 'visibility'}}
+                        </mat-icon>
+              }
+              @if(config.novaSenha){
+                <mat-form-field class="example-form-field senha">
+                  <mat-label>Confirmar Senha</mat-label>
+                  <input matInput required="true"
+                         formControlName="confirmarSenha"
+                         [type]="hide ? 'password' : 'text'">
+                        </mat-form-field>
+                        <mat-icon class="mat-icon"
+                                  (click)="clickEvent($event)">
+                                  {{hide ? 'visibility_off' : 'visibility'}}
+                        </mat-icon>
+              }
+              <button class="entrar"
+                      mat-button type="submit">
+                {{config.button}}
+              </button>
+            </form>
+            @if(!config.novaSenha && !config.recuperarSenha){
+              <p>Esqueceu a senha?
+                  <a class="a2"
+                     (click)="enviarEmail()">clique aqui!
+                  </a>
+              </p>
+            }
+            @if(config.novaSenha || config.recuperarSenha){
+              <a class="voltar"
+                 href="#"
+                 (click)="voltar()">
+                 VOLTAR
+              </a>
+            }
+        </div>
+      </div>
+  }@else{
+    <mat-spinner></mat-spinner>
+  }
+</div>

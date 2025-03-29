@@ -1,0 +1,66 @@
+@if(pageable != null && pageable.content.length > 0){
+    <div class="bloco1">
+        @for(tile of pageable.content; track tile.imvCodigo; let i = $index){
+            <div class="card">
+                <div class="topo">{{tile.situacaoImovel.stiDescricao}}</div>
+                <div class="arrow-left" (click)="navegarImagem('prev', tile.imagensCodigo)">&#10094;</div>
+                <img [src]="mostraImagem(tile.imagensCodigo[indexImagem(tile.imagensCodigo)].imgCodigo)" (click)="detalhes(tile.imvCodigo)" width="306px" height="308px"/>                                     
+                <div class="arrow-right" (click)="navegarImagem('next', tile.imagensCodigo)">&#10095;</div>
+                <div class="icones_superior">
+                    <div class="codigo">Ref.:{{tile.imvCodigo}}</div>
+                    <div class="compartilhar" (click)="compartilhar(tile)"><mat-icon>share</mat-icon></div>
+                </div>
+                <div class="informacoes">
+                    <div class="descricao">{{tile.imvDescricao}}</div>
+                    <div class="endereco">{{tile.endereco.endBairro}} - {{tile.endereco.cidade.cidDescricao}}/{{tile.endereco.cidade.estado.estSigla}} </div>
+                    <div class="valor">{{tile.imvValor | currency: 'BRL':'symbol':'1.2-2'}}<span class="tipo">/{{tile.negocio.ngcDescricao}}</span></div>
+                    <mat-divider class="divider"></mat-divider>
+                    <div class="icones">
+                        <div class="icone">
+                            <div>
+                                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="hotel"></mat-icon>
+                            </div>
+                            <div>
+                                {{tile.imvDormitorio}}
+                            </div>
+                        </div>
+                        @if(tile.imvGaragem > 0){
+                            <div class="icone">
+                                <div>
+                                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="directions_car"></mat-icon>
+                                </div>
+                                <div>
+                                    {{tile.imvGaragem}}
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="icone">
+                        @if(tile.imvAreaConstruida != undefined){
+                            <div>
+                                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+                            </div>
+                            <div>
+                                {{tile.imvAreaTotal.toString().replace('.', ',')}} m² (Àreaa Total)
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="bloco2">
+        <mat-paginator #paginator
+            class="demo-paginator"
+            (page)="handlePageEvent($event)"
+            [length]="pageable.page.totalElements"
+            [disabled]="disabled"
+            [showFirstLastButtons]="showFirstLastButtons"
+            [hidePageSize]="pageable.page.size"
+            [pageIndex]="pageable.page.number"
+            [pageSize]="12"
+            [pageSizeOptions]="[12]"
+            aria-label="Select page">
+        </mat-paginator>
+    </div>
+}

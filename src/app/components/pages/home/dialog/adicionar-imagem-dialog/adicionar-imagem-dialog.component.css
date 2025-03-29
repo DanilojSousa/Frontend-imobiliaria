@@ -1,0 +1,110 @@
+.content_adicionar_imagem_dialog{
+    background-color: white;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    .upload{
+        width: 45%;
+        height: 100vh;
+        .upload-container {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            margin: 20px;
+        }
+        .upload-container mat-card {
+        padding: 20px;
+        cursor: pointer;
+        }   
+        .drop-zone {
+        border: 2px dashed #3f51b5;
+        padding: 20px;
+        text-align: center;
+        margin: 10px;
+        color: #3f51b5;
+        cursor: pointer;
+        }
+        
+        .drop-zone:hover {
+        background-color: #f0f0f0;
+        }
+    }
+    .lista_imagens{
+        width: 45%;
+        height: 100%;
+        .imagens{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            mat-radio-button{
+                color: #818181;
+                font-family: "Montserrat";
+                font-size: 14px;
+            }
+            .icone_delete{
+                background-color: red;
+                border-radius: 100%;
+                display: flex;
+                cursor: pointer;
+                mat-icon{
+                    color: white;
+                    font-size: 14px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }  
+        }
+        .divider{
+            border-top-width: 1px;
+            border-color: #E6E6E6;
+            margin: 10px 0 10px 0;
+        }
+        .button{
+            width: 100%;
+            bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .floating-button {
+                background-color: green;
+                color: white;
+                border: none;
+                border-radius: 0%;
+                width: 150px;
+                font-size: 14px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background-color 0.3s ease;
+            }
+            
+            .floating-button:hover {
+                background-color: #0056b3;
+            }
+            .limpar_tudo{
+                color: #0056b3;
+                font-size: 14px;
+                cursor: pointer;
+            }
+            .limpar_tudo:hover{
+                color: #465261;
+            }
+        }    
+    }
+}
+@media (max-width: 720px) {
+    .content_adicionar_imagem_dialog{
+       display: flex!important;
+       flex-direction: column!important;
+       align-items: center!important;
+    }
+    .upload{
+        width: 90%!important;
+    }
+    .lista_imagens{
+        margin-top: 30px!important;
+        width: 90%!important;
+    }
+}

@@ -1,0 +1,66 @@
+<div class="content_negocio">
+    @if(!isLoadingResults){
+        <div class="button">
+            <div class="novo_cadastro" (click)="novo()">
+                <mat-icon  fontIcon="add"></mat-icon>
+            </div>
+            <div class="voltar" (click)="voltar()">
+                <mat-icon  fontIcon="arrow_back"></mat-icon>
+            </div>
+        </div>
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="pageable.content || []">
+        
+                <ng-container matColumnDef="Ref:">
+                    <th mat-header-cell *matHeaderCellDef>Ref:</th>
+                    <td mat-cell *matCellDef="let row">{{row?.ngcCodigo}}</td>
+                </ng-container>
+            
+                <!-- Title Column -->
+                <ng-container matColumnDef="Descrição">
+                    <th mat-header-cell *matHeaderCellDef>Descrição</th>
+                    <td mat-cell *matCellDef="let row">{{row?.ngcDescricao}}</td>
+                </ng-container>
+    
+                <ng-container matColumnDef="Ação">
+                    <th mat-header-cell *matHeaderCellDef>
+                        <div class="acao">
+                            Ação
+                            @if(spinnerAcao){
+                                <div class="spinner_acao">
+                                <mat-spinner></mat-spinner>
+                                </div>
+                            }
+                        </div>  
+                    </th>
+                    <td mat-cell *matCellDef="let row">
+                        <div class="icones">
+                            <div class="detalhe"><mat-icon (click)="detalhe(row.ngcCodigo)" fontIcon="find_in_page"></mat-icon></div>
+                            <div class="delete"><mat-icon (click)="abrirDialogDeletar(row)" fontIcon="delete"></mat-icon></div>
+                        </div>
+                    </td>
+                </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        
+            <mat-paginator #paginator
+            class="demo-paginator"
+            (page)="handlePageEvent($event)"
+            [length]="pageable.page.totalElements"
+            [disabled]="false"
+            [showFirstLastButtons]="true"
+            [hidePageSize]="pageable.page.size"
+            [pageIndex]="pageable.page.number"
+            [pageSize]="10"
+            [pageSizeOptions]="[10]"
+            aria-label="Select page">
+        </mat-paginator>
+        </div>
+    }@else {
+        <div class="spinner">
+            <mat-spinner></mat-spinner>
+        </div>
+    }
+</div>

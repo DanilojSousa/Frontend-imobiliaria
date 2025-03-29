@@ -1,0 +1,229 @@
+.close{
+  margin-left: 95%;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 20px;
+  position: absolute;
+  font-size: 40px;
+  color: #9AA0A9;
+  cursor: pointer;
+}
+.conteiner_login{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .conteudo{
+    background-color: #4C2426;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    .logo{
+      width: 40%;
+      height: 90%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      margin-left: -50px;
+    }
+    .formulario{
+      width: 35%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 20px;
+        p:first-child {
+          margin: 0 0 30px;
+          padding: 0;
+          color: white;
+          text-align: center;
+          font-size: 1.5rem;
+          font-weight: bold;
+          letter-spacing: 1px;
+      }
+      .email{
+        width: 100%;
+      }
+      .senha{
+        width: 90%;
+      }
+      .mat-icon{
+        cursor: pointer;
+        padding-left: 5px;
+        color: white;
+      }
+      .entrar{
+        width: 150px;
+        background-color: #B4985F;
+        border-radius: 0px;
+        color: white;
+      }
+      .user-box {
+        position: relative;
+        display: flex;
+      }
+      form a {
+        position: relative;
+        display: inline-block;
+        padding: 10px 20px;
+        font-weight: bold;
+        color: #ffffff;
+        font-size: 16px;
+        text-decoration: none;
+        text-transform: uppercase;
+        overflow: hidden;
+        transition: .5s;
+        margin-top: 40px;
+        letter-spacing: 3px;
+        border: 1px solid var(--cor_primario);
+        border-radius: 5px!important;
+      }
+
+      a:hover {
+        background: #947944;
+        color: #d1cdcd!important;
+      }
+
+      a span {
+        position: absolute;
+        display: block;
+      }
+      .voltar{
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 0.8rem;
+        margin-left: 65%;
+        padding: 10px 20px;
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+      }
+      .voltar:hover{
+        background: var(--cor_primario);
+        color: #947944;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      a span:nth-child(1) {
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #B4985F);
+        animation: btn-anim1 1.5s linear infinite;
+      }
+
+      @keyframes btn-anim1 {
+        0% {
+          left: -100%;
+        }
+
+        50%,100% {
+          left: 100%;
+        }
+      }
+
+      a span:nth-child(2) {
+        top: -100%;
+        right: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(180deg, transparent, var(--cor_primario));
+        animation: btn-anim2 1.5s linear infinite;
+        animation-delay: .375s
+      }
+
+      @keyframes btn-anim2 {
+        0% {
+          top: -100%;
+        }
+
+        50%,100% {
+          top: 100%;
+        }
+      }
+
+      a span:nth-child(3) {
+        bottom: 0;
+        right: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(270deg, transparent, var(--cor_primario));
+        animation: btn-anim3 1.5s linear infinite;
+        animation-delay: .75s
+      }
+
+      @keyframes btn-anim3 {
+        0% {
+          right: -100%;
+        }
+
+        50%,100% {
+          right: 100%;
+        }
+      }
+
+      a span:nth-child(4) {
+        bottom: -100%;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(360deg, transparent, var(--cor_primario));
+        animation: btn-anim4 1.5s linear infinite;
+        animation-delay: 1.125s
+      }
+
+      @keyframes btn-anim4 {
+        0% {
+          bottom: -100%;
+        }
+
+        50%,100% {
+          bottom: 100%;
+        }
+      }
+
+      p:last-child {
+        margin-top: 30px;
+        color: #ffffff;
+        font-size: 14px;
+        display: flex;
+        justify-content: end;
+      }
+      a.a2 {
+        color: rgb(57, 37, 231);
+        margin-left: 5px;
+        width: 100px;
+        display: flex;
+        justify-content: center;
+      }
+
+      a.a2:hover {
+        background: transparent;
+        color: #ffffff!important;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: var(--cor_primario);
+      }
+    }
+  }
+}
+@media(max-width: 825px) {
+  .logo{
+    display: none!important;
+  }
+  .formulario{
+    width: 80%!important;
+  }
+  .close{
+    margin-left: 85%!important;
+  }
+}

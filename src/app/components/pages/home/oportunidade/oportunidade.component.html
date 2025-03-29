@@ -1,0 +1,20 @@
+<div id="content_oportunidade">
+    <div class="titulo">
+        <h1>Oportunidade!</h1>
+    </div>
+    <div class="cards">
+        @for(imovel of listaImovelOportunidade; track imovel; let i = $index){
+             <div class="card" (click)="detalhes(imovel.imvCodigo)">
+                <img [src]="mostraImagem(imovel.imgCodigo)" width="415px" height="450px"/>
+                <div class="informacao">
+                    <div class="conteudo">
+                        <div class="titulo">{{imovel.imvDescricao}}</div>
+                        <div class="descricao">{{imovel.imvObservacao}}</div>
+                        <button class="buttons" mat-flat-button>Detalhes</button>
+                    </div>
+
+                </div>
+             </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,133 @@
+<div class="content_cadastro_usuario">
+    <div class="button">
+        <div class="voltar" (click)="voltar()">
+            <mat-icon fontIcon="arrow_back"></mat-icon>
+        </div>
+    </div>
+      <form (ngSubmit)="salvar()" novalidate>
+        <div>
+            <label for="empRazaoSocial"><span>*</span>Razão Social</label>
+            <input type="text" 
+                  required
+                  id="empRazaoSocial" 
+                  placeholder="Digite a razão social" 
+                  name="empRazaoSocial" 
+                  [(ngModel)]="empresa.empRazaoSocial"/>
+              @if(empresa.empRazaoSocial === undefined && valida){
+                <div class="error">
+                  A razão social é obrigatório.
+                </div>
+              }
+        </div>
+        <div>
+            <label for="empCnpj"><span>*</span>CNPJ</label>
+            <input type="text" 
+                  #cnpj 
+                  id="empCnpj" 
+                  placeholder="Nome do usuário" 
+                  name="empCnpj" 
+                  [(ngModel)]="empresa.empCnpj"
+                  (input)="formataCnpj(empresa.empCnpj)"
+                  maxlength="18"/>
+            @if(empresa.empCnpj === undefined && valida){
+            <div class="error">
+                O CNPJ é obrigatório.
+            </div>
+            }       
+        </div>
+        <div>
+            <label for="empIe">IE</label>
+            <input type="text" 
+                  #cpf 
+                  id="empIe" 
+                  placeholder="Nome do usuário" 
+                  name="empIe" 
+                  [(ngModel)]="empresa.empIe"/>    
+        </div>
+        <div>
+            <label for="emaEmail"><span>*</span>E-mail</label>
+            <input type="email" 
+                  required
+                  #email 
+                  id="emaEmail" 
+                  placeholder="E-mail do usuário" 
+                  name="emaEmail" 
+                  [(ngModel)]="empresa.email.emaEmail"
+                  #descricao="ngModel"
+                  (blur)="checarEmail(empresa.email.emaEmail)"/>
+              @if(empresa.email.emaEmail === undefined && valida){
+                <div class="error">
+                  O e-mail é obrigatório.
+                </div>
+              }
+              @if(emailInvlaido){
+                <div class="error">
+                  E-mail inválido
+                </div>
+              }
+        </div>
+        <div>
+            <label for="rsoInstagram">Instagram</label>
+            <input type="text" 
+                  required
+                  #email 
+                  id="rsoInstagram" 
+                  placeholder="Instagram da empresa" 
+                  name="rsoInstagram" 
+                  [(ngModel)]="empresa.redeSocial.rsoInstagram"/>
+        </div>
+        <div>
+          <label for="cntWhatsapp"><span>*</span>Whatsapp</label>
+          <input (input)="onPhoneInput($event)" 
+                  maxlength="15" 
+                  type="text" 
+                  id="cntWhatsapp" 
+                  placeholder="Seu telefone" 
+                  name="cntWhatsapp" 
+                  [(ngModel)]="empresa.contato.cntWhatsapp"/>
+              @if(empresa.contato.cntWhatsapp === undefined && valida){
+                <div class="error">
+                  O whatsapp é obrigatório.
+                </div>
+              }
+        </div>
+        <div class="select">
+          <label for="endereco"><span>*</span>Endereço</label>
+          <mat-select id="endereco" [(ngModel)]="empresa.endereco" required name="endereco" placeholder="Selecione">
+              @for (endereco of listaEndereco; track endereco; let i = $index) {
+                  <mat-option [value]="endereco">{{endereco.endEndereco}}</mat-option>
+              }
+          </mat-select>
+          @if(empresa.endereco.endEndereco === undefined && valida){
+            <div class="error">
+              O endereço é obrigatório.
+            </div>
+          }
+        </div>
+        <div>
+            <div class="icones_imagens">
+              <div class="add_imagem" (click)="fileInput.click()">
+                  <mat-icon fontIcon="photo_camera"></mat-icon> 
+              </div>
+              @if(empresa.empLogo != null){
+                <div class="delete_imagem" (click)="deletePhoto()">
+                  <mat-icon fontIcon="no_photography"></mat-icon> 
+                </div>
+              }
+            </div>
+            <input #fileInput hidden class="upload_imagem" type="file" (change)="onFileSelected($event)" accept="image/png"/>
+            @if(empresa.empLogo != null && empresa.empLogo != ''){
+                <div>
+                   <p>max: 300x300</p>
+                    <img [src]="mostrarImagens()" width="200px" height="150px"/>
+                </div>
+            }@else {
+                <div class="imagem"></div>
+            }
+          </div>
+        <div>
+          <button class="button_salvar" mat-flat-button>Salvar</button>
+        </div>
+      </form>
+  </div>
+    

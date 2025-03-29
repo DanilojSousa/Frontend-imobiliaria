@@ -1,0 +1,36 @@
+div{
+    background-color: white;
+}
+h2, mat-dialog-content{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: rgb(60, 72, 88);
+    span{
+        font-weight: bold;
+    }
+}
+button {
+    margin-right: 8px;
+}
+.sim{
+    background-color: #299229;
+    border-radius: 3px;
+    color: #DCE9F7;
+    border: 1px solid #299229;
+    padding: 5px;
+    cursor: pointer;
+}
+.nao{
+    background-color: #FF0000;
+    border-radius: 3px;
+    color: #DCE9F7;
+    padding: 5px;
+    border: 1px solid #FF0000!important;
+    cursor: pointer;
+}
+.sim:hover{
+    background-color: #55b955;
+}
+.nao:hover{
+    background-color: #fd4444!important;
+}

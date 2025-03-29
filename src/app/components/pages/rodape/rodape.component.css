@@ -1,0 +1,173 @@
+.conteiner_rodape{
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 0px!important;
+  .dados_site{
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    background-color: #4C2426;
+    padding-top: 50px;
+    img{
+      margin: 0px;
+    }
+    div{
+      display: flex;
+      div{
+        display: block;
+      }
+      .rede_social{
+        div{
+          display: flex;
+        }
+      }
+    }
+    p{
+      font-size: 14px;;
+      color: white;
+      font-family: Montserrat, "Trebuchet MS", serif;
+      line-height: 1.15em;
+      font-weight: 500;
+    }
+    .menu_principal{
+      font-size: 16px;
+      color: #B4985F;
+    }
+    .menus{
+      margin: 0px 50px 0px 50px;
+      .menu:hover{
+        cursor: pointer;
+        color: rgb(187, 185, 185);
+      }
+    }
+    .copia_email{
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      mat-icon{
+        font-size: 18px;
+      }
+    }
+    .copia_email:hover{
+      color: rgb(187, 185, 185);
+    }
+    .icones{
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      .instagran, .whatssap{
+        margin: 10px 5px 10px 5px;
+      }
+    }
+    .card {
+      width: fit-content;
+      height: fit-content;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px 25px;
+      gap: 20px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055);
+    }
+    
+    /* for all social containers*/
+    .socialContainer {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition-duration: .3s;
+    }
+    
+    .instagran .socialContainer{
+      background-color: rgba(231, 240, 249, 0.2);
+    }
+    
+    .whatssap .socialContainer{
+      background-color: rgba(231, 240, 249, 0.2);
+    }
+
+    /* Whatsapp*/
+    .whatssap .containerFour:hover {
+      background-color: #128C7E;
+    }
+    
+    .instagran .containerOne:hover{
+      background-color: #a02180;
+    }
+    .socialSvg {
+      width: 17px;
+    }
+    
+    .socialSvg path {
+      fill: rgb(255, 255, 255);
+    }
+    
+  }
+  .reservados{
+    width: 100%;
+    height: 50px;
+    margin: 0px;
+    background-color: #311617;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    p{
+      color: white;
+      font-size: 14px;
+      margin: 0px!important;
+    }
+    a{
+        text-decoration: none;
+        font-family: openSans;
+        font-size: 14px;
+        color: white;
+    }
+    a:hover{
+        color: rgb(12, 3, 148);
+    }
+  }
+}
+@media (max-width: 975px) {
+  .dados_site{
+    height: auto!important;
+    flex-wrap: wrap!important;
+    gap: 10px!important;
+  }
+  .reservados{
+    height: auto!important;
+    flex-wrap: wrap!important;
+    gap: 10px!important;
+  }
+}
+@media (max-width: 711px) {
+  .dados_site{
+    height: auto!important;
+    flex-wrap: wrap!important;
+    gap: 10px!important;
+  }
+  .reservados{
+    height: auto!important;
+    flex-wrap: wrap!important;
+    gap: 10px!important;
+  }
+}
+@media (max-width: 473px) {
+  .informacoes{
+    display: flex!important;
+    flex-direction: column!important;
+    align-items: center!important;
+    .rede_social, .menus, .contato{
+      margin-bottom: 20px!important;
+    }
+  }
+  .reservados p{
+    padding: 10px!important;
+    text-align: center!important;
+  }
+}

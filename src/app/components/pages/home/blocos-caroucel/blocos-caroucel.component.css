@@ -1,0 +1,232 @@
+.bloco1{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap; /* Permite quebrar para a próxima linha */
+    gap: 15px; /* Espaço entre os blocos */
+    overflow: hidden!important;
+    .card{
+        position: relative;
+        width: 308px;
+        height: 458px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        .topo{
+            width: 306px;
+            height: 20px;
+            color:white;
+            background-color: #4C2426;
+            transition: all 0.5s ease;
+            position: absolute;
+            z-index: 2;
+            top: 0px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 400;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        img{
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: absolute;
+            z-index: 1;
+            border: 0.5px solid rgba(226, 228, 232, 0.8);
+            border-radius: 5px;
+    }
+        .arrow-left,
+        .arrow-right {
+        width: auto;
+        height: 10px;
+        position: absolute;
+        top: 30%;
+        display: flex;
+        align-items: center;
+        color: rgb(255, 255, 255) !important;
+        transform: translateY(-50%);
+        font-size: 30px;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        cursor: pointer;
+        z-index: 0;
+        }
+
+        .arrow-left {
+        left: 0px;
+        }
+
+        .arrow-right {
+        right: 0px;
+        }
+    }
+    .card:hover{
+        transform: scale(1.05); /* Aumenta o card em 10% */
+        z-index: 10;
+        .topo{
+            z-index: 0;
+        }
+        .arrow-left{
+            z-index: 2;
+        }
+        .arrow-right {
+            z-index: 2;
+        }
+        .informacoes{
+            margin-top: 10px;
+            opacity: 0;
+        }
+        .icones_superior{
+            margin-top: 80%;
+            cursor: pointer;
+        }
+    }
+    .icones_superior{
+        display: flex;
+        width: 100%;
+        height: 50px;
+        position: absolute;
+        z-index: 2;
+        align-items: center;
+        margin-top: 60%;
+        margin-left: 5%;
+        transition: all 0.5s ease;
+        .codigo{
+            margin: 5px;
+            display: inline-block;
+            font-size: 14px;
+            line-height: 17px;
+            position: relative;
+            background: rgba(34, 34, 34, 0.8);
+            color: rgb(255, 255, 255);
+            border-radius: 4px;
+            padding: 10px;
+        }
+        .compartilhar{
+            padding: 5px;
+            background-color: white;
+            color: #4C2426;
+            border-radius: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 58%;
+        }
+    }
+    .informacoes{
+        width: 80%!important;
+        position: relative;
+        z-index: 2;
+        margin: auto;
+        margin-top: 80%!important;
+        background: rgb(255, 255, 255);
+        border-radius: 4px;
+        box-shadow: rgba(184, 195, 214, 0.55) 0px 0px 24px;
+        padding: 20px;
+        transition: all 0.5s ease;
+        display: flex;
+        flex-direction: column;
+        .descricao{
+            font-size: 14px;
+            line-height: 19px;
+            margin-bottom: 0.4em;
+            font-weight: 600;
+            color: rgb(60, 72, 88);
+        }
+        .endereco{
+            font-size: 14px;
+            line-height: 17px;
+            margin-bottom: 0.5em;
+            font-style: normal;
+            max-width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            color: rgb(60, 72, 88);
+        }
+        .valor{
+            font-size: 18px;
+            line-height: 21px;
+            display: block;
+            margin-top: 5px;
+            white-space: pre-wrap;
+            color: #B4985F;
+            .tipo{
+                font-size: 12px;
+                font-weight: 400;
+            }
+        }
+        .divider{
+            border-top-width: 1px;
+            border-color: #E6E6E6;
+            margin: 10px 0 10px 0;
+        }
+        .icones{
+            display: flex;
+            justify-content: flex-start;
+            .icone{
+                display: flex;
+                align-items: center;
+                text-align: center;
+                padding-right: 20px;
+                color: rgb(60, 72, 88);
+                font-size: 14px;
+                mat-icon{
+                    color: #4C2426;
+                    font-size: 22;
+                    padding-right: 5px;
+                }
+            }
+        }
+        .icone{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center;
+            padding-right: 20px;
+            color: rgb(60, 72, 88);
+            font-size: 14px;
+            mat-icon{
+                color: #4C2426;
+                font-size: 22;
+                padding-right: 5px;
+            }
+        }
+    }
+    .card:hover .informacoes {
+        transform: scale(0.9);
+    }
+    .card:hover .icones_superior{
+        transform: scale(1.0);
+    }
+    .card:hover .icones_superior{
+        transform: scale(1.0);
+    } .card:hover .itopo{
+        transform: scale(1.0);
+    }
+}
+.bloco2{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 50px;
+    mat-paginator{
+        background-color: #F8F9FA;
+    }
+}
+.spinner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 600px;
+    margin: auto;
+}
+@media(max-width: 1314px) {
+    .bloco1{
+        display: flex!important;
+        justify-content: center!important;
+    }
+}

@@ -1,0 +1,105 @@
+#content_contato{
+    width: 100%;
+    display: flex;
+    margin-bottom: 50px;
+    flex-direction: column;
+    align-items: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../../../../../assets/contato/fundo_conato.png");   
+    background-size: cover; /* Mantém o tamanho original da imagem */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    background-position: center; /* Posiciona a imagem no topo e centralizada */
+    .titulo{
+        width: 100%;
+        margin-top: 50px;
+        h1{
+            z-index: 2;
+            font-size: 30px;
+            margin: 0px 60px 30px;
+            text-align: left;
+            color: white;
+        }
+    }
+    .conteudo{
+        width: 30%;
+        margin-bottom: 50px;
+        .form{
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            margin: auto;
+            div{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                label{
+                    width: 100%;
+                    font-size: 14px;
+                    padding-top: 8px;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: unset;
+                    color: white;
+                }
+                input, textarea{
+                    border-radius: 2px;
+                    min-height: 40px;
+                    border: 1px solid rgba(226, 228, 232, 0.8);
+                    flex: 1 1 0%;
+                    outline: none;
+                    max-width: 100%;
+                    font-size: inherit;
+                    color: inherit;
+                    min-width: 1px;
+                    font-family: inherit;
+                    line-height: 1.15em;
+                    letter-spacing: 0.3px;
+                    word-spacing: -0.75px;
+                    padding-left: 5px;
+                }
+                input::placeholder {
+                    color: rgb(185, 183, 183); /* Cor desejada para o placeholder */
+                    opacity: 1; /* Para garantir que a cor aplicada seja visível */
+                  }
+            }
+            .error{
+                color: red;
+                font-size: 12px;
+                margin: 0px;
+            }
+            .buttons{
+                display: flex;
+                margin: auto;
+                width: 100%;
+                justify-content: space-between!important;
+                flex-direction: row;
+                margin: 10px 0 10px 0;
+                .button_email{
+                    background-color: #B4985F;
+                    color: white;
+                    border-radius: 3px;
+                    width: 45%;
+                    height: 40px;
+                }
+                .button_whatsapp{
+                    background-color: #4C2426;
+                    color: white;
+                    border-radius: 3px;
+                    width: 45%;
+                    height: 40px;
+                    span{
+                        display: flex;
+                        align-items: center;
+                        svg{
+                            padding-right: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media(max-width: 950px) {
+    .conteudo{
+        width: 80%!important;
+    }
+}

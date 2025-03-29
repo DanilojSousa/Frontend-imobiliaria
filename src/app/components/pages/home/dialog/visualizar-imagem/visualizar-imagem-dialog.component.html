@@ -1,0 +1,11 @@
+<div class="close" (click)="close()">&#x2716;</div>
+<div class="content">
+    <img [src]="mostraImagem(imagemPrincipal)">
+    <div class="slide">
+        <div class="arrow-left" (click)="navegarImagem('prev')">&#x2B9D;</div>
+        @for(imagem of imagemSlide; track imagem; let i = $index){
+            <img [ngClass]="i > 3 ? 'hidden' : 'visible'"  class="imagem-slide" (click)="mudarImagem(i)" [src]="mostraImagem(imagem.imgImagem)">
+        }
+        <div class="arrow-right" (click)="navegarImagem('next')">&#x2B9F;</div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+.close{
+    margin-left: 95%;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 20px;
+    position: absolute;
+    font-size: 40px;
+    color: #9AA0A9;
+    cursor: pointer;
+}
+.content{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+
+    img{
+        width: 55%;
+        height: 55%;
+        overflow: hidden;
+        margin: 20px;
+    }
+    .arrow-left,
+    .arrow-right {
+    width: auto;
+    height: auto;
+    margin: auto;
+    font-size: 30px;
+    color: #9AA0A9;
+    padding: 20px;
+    cursor: pointer;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    }
+
+    .arrow-left {
+    left: 10px;
+    }
+
+    .arrow-right {
+    right: 10px;
+    }
+    .slide{
+        .imagem-slide{
+            display: flex;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+          }
+          
+          .visible {
+            opacity: 1;
+            display: block;
+          }
+    }
+
+}

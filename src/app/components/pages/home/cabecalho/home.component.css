@@ -1,0 +1,191 @@
+#content_home::before {
+  width: 100%; /* Largura 100% para que a imagem ocupe a largura do container */
+  height: 400px; /* A altura será ajustada automaticamente */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../../../../../assets/home/home_fundo.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;  
+}
+.conteudo{
+  display: flex;
+  .logo{
+    width: 200px;
+    height: 200px;
+  }
+  .menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    .menu_toggle{
+      display: none;
+      button{
+        background-color: #F8F9FA;
+        border: none;
+        border-radius: 100%;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+      }
+    }
+    .icones{
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      .instagran, .whatssap{
+        margin: 10px 5px 10px 5px;
+      }
+    }
+    .linha{
+      width: 100%;
+      border: 0.01em Dashed rgb(199, 174, 128, 0.5);
+    }
+    .menus_acesso{
+      display: flex;
+      a{
+        margin-right: 20px;
+        text-decoration: auto;
+      }
+      a.selected {
+        color: white; /* Cor para o item ativo */
+        font-weight: 500;
+      }
+      a:hover{
+        cursor: pointer;
+        color: #ffffff;
+      }
+    }
+  }
+
+}
+
+/*icone social*/
+
+.card {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 25px;
+  gap: 20px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055);
+}
+
+/* for all social containers*/
+.socialContainer {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition-duration: .3s;
+  border-radius: 100%;
+}
+/* instagram*/
+.instagran .containerOne:hover {
+  background-color: #d62976;
+  transition-duration: .3s;
+}
+
+/* Whatsapp*/
+.whatssap .containerFour:hover {
+  background-color: #128C7E;
+  transition-duration: .3s;
+}
+
+.containerThree:hover{
+  background-color: #1a5bd3;
+  transition-duration: .3s;
+}
+
+.socialContainer:active {
+  transform: scale(0.9);
+  transition-duration: .3s;
+}
+
+.socialSvg {
+  width: 17px;
+}
+
+.socialSvg path {
+  fill: rgb(255, 255, 255);
+}
+
+.socialContainer:hover .socialSvg {
+  animation: slide-in-top 0.3s both;
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.menu_fixo{
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  background-color: #4C2426;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  z-index: 6;
+  a{
+    margin-right: 20px;
+    text-decoration: auto;
+  }
+  a.selected {
+    color: white; /* Cor para o item ativo */
+    font-weight: 500;
+  }
+  a:hover{
+    cursor: pointer;
+    color: #ffffff;
+  } 
+}
+@media(max-width: 900px) {
+  .conteudo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  .linha{
+    display: block!important;
+  }
+
+}
+@media(max-width: 670px) {
+  .menu_toggle{
+    display: block!important;
+  }
+  .menus_acesso, .linha, .menu_fixo{
+    display: none!important;
+  }
+  .menu{
+    display: flex!important;
+    width: 70%!important;
+    justify-content: space-between!important;
+    margin: auto!important;
+    flex-direction: row!important;
+    align-items: center!important;
+    .icones{
+      display: flex!important;
+      justify-content: flex-start!important;
+    }
+  }
+}

@@ -1,0 +1,135 @@
+<div id="content_filtrado">
+    @if(!spinner){
+        <div class="cabecalho">
+            @if(filtro){
+                <div class="titulo">Foram encontrados {{pageable.page.totalElements}} imóveis</div>
+                <div class="filtro_preco">
+                    <div class="maiorPreco" [ngClass]="{'maiorPrecoInativo': maiorPreco}" (click)="ordenarMaiorPreco()">Maior preço <mat-icon>arrow_upward</mat-icon></div>
+                    <div class="menorPreco" [ngClass]="{'menorPrecoInativo': menorPreco}" (click)="ordenarMenorPreco()">Menor preço <mat-icon>arrow_downward</mat-icon></div>
+                </div>
+            }
+        </div>
+        @if(buttonTogle){
+            <div class="toggle-button" (click)="toggleFilters()">
+                <mat-icon>filter_list</mat-icon>
+                <div class="mostraFiltro">{{ !showFilters ? 'Esconder Filtros' : 'Filtrar' }}</div>
+            </div>
+        }
+        <div class="conteudo">
+            @if(filtro && !showFilters){
+                <div class="filtro_blocos filtros" [ngClass]="{'slide-in': !showFilters, 'slide-out': showFilters}">
+                    <div class="filtro_lateral">
+                        <div class="titulo">Geral</div>
+                        @for (item of listaFiltroSelecionado; track $index; let i = $index) {
+                        <div class="filtros">{{item.descricao}}</div>
+                        <div class="Itens_geral">
+                            @for(tile of generateSequence(item.quantidade); track tile){
+                                <div class="itens" (click)="selecionarValorFiltro(i, tile)" [class.selecionado]="item.selecionado === tile">{{tile}}</div>
+                            }
+                        </div>
+                        }
+                        <mat-divider class="divider"></mat-divider>
+                        <div class="filtros">Minha Casa Minha Vida</div>
+                        <div class="opcao">
+                            <div (click)="selecionarSimNao('minhaCasaMinhaVida', true)" [class.selecionado]="pesquisaFiltradaImovel.imvMinhaCasaMinhaVida === true">Sim</div>
+                            <div (click)="selecionarSimNao('minhaCasaMinhaVida', false)" [class.selecionado]="pesquisaFiltradaImovel.imvMinhaCasaMinhaVida === false">Não</div>
+                        </div>
+                        <mat-divider class="divider"></mat-divider>
+                        <div class="filtros">Aceita finaciamento</div>
+                        <div class="opcao">
+                            <div (click)="selecionarSimNao('financiamento', true)" [class.selecionado]="pesquisaFiltradaImovel.imvAceitaFinanciamento === true">Sim</div>
+                            <div (click)="selecionarSimNao('financiamento', false)" [class.selecionado]="pesquisaFiltradaImovel.imvAceitaFinanciamento === false">Não</div>
+                        </div>
+                        <mat-divider class="divider"></mat-divider>
+                        <div class="filtros">Com mobília</div>
+                        <div class="opcao">
+                            <div (click)="selecionarSimNao('mobiliado', true)" [class.selecionado]="pesquisaFiltradaImovel.imvMobiliado === true">Sim</div>
+                            <div (click)="selecionarSimNao('mobiliado', false)" [class.selecionado]="pesquisaFiltradaImovel.imvMobiliado === false">Não</div>
+                        </div>
+                        <mat-divider class="divider"></mat-divider>
+                        <div class="filtros">Próximo ao mar?</div>
+                        <mat-select id="localizaoPraia" [(ngModel)]="pesquisaFiltradaImovel.lcpCodigo" name="lcpCodigo" placeholder="Selecione">
+                            <mat-option (click)="pesquisaFiltrada()">Selecione</mat-option>
+                            @for (item of listaLocalizacaoPraia; track item; let i = $index) {
+                                <mat-option [value]="item.lcpCodigo" (click)="pesquisaFiltrada()">{{item.lcpDescricao}}</mat-option>
+                            }
+                        </mat-select>
+                    </div>
+                    <div class="filtro_lateral">
+                        <div class="titulo">Preço</div>
+                        <div class="preco">
+                            <div class="minimo">
+                                <div class="filtros">Mínimo</div>
+                                <input type="text" 
+                                    [(ngModel)]="pesquisaFiltradaImovel.valorMinimo" 
+                                    name="valorMinimo" 
+                                    placeholder="R$ 0,00"
+                                    appCurrencyMask
+                                    (valueChange)="valorMaximoMinimo($event, 'minimo')"/>
+                            </div>
+                            <div class="maximo">
+                                <div class="filtros">Máximo</div>
+                                <input type="text" 
+                                    [(ngModel)]="pesquisaFiltradaImovel.valorMaximo" 
+                                    name="valorMaximo"  
+                                    placeholder="R$ 0,00"
+                                    appCurrencyMask
+                                    (valueChange)="valorMaximoMinimo($event, 'maximo')"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filtro_lateral">
+                        <div class="titulo">Área Total</div>
+                        <div class="preco">
+                            <div class="minimo">
+                                <div class="filtros">Mínimo</div>
+                                <input type="text" 
+                                    [(ngModel)]="pesquisaFiltradaImovel.areaTotalMinimo" 
+                                    name="valorMinimo" 
+                                    placeholder="0,00 m²"
+                                    appMetragemMask
+                                    (valueChange)="valorAreaMaximoMinimo($event, 'minimo')"/>
+                            </div>
+                            <div class="maximo">
+                                <div class="filtros">Máximo</div>
+                                <input type="text" 
+                                    [(ngModel)]="pesquisaFiltradaImovel.areaTotalMaximo" 
+                                    name="valorMaximo"  
+                                    placeholder="0,00 m²"
+                                    appMetragemMask
+                                    (valueChange)="valorAreaMaximoMinimo($event, 'maximo')"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filtro_lateral">
+                        <div class="titulo">Perfil do Imovel</div>
+                        <div class="checbox_perfil">
+                            <section class="example-section">
+                                @for (item of listaTipoImovel; track item; let i = $index) {
+                                    <mat-checkbox [(ngModel)]="item.selecionado"
+                                    (click)="tipoImovelSelecionado()">{{item.tpiDescricao}}</mat-checkbox>
+                                }
+                            </section>
+                        </div>
+                    </div>
+                    <div class="filtro_lateral">
+                        <div class="titulo">Estágio da Obra</div>
+                        <div class="checbox_perfil">
+                            <section class="example-section">
+                                @for (item of listaSituacaoImovel; track item; let i = $index) {
+                                    <mat-checkbox [(ngModel)]="item.selecionado"
+                                    (click)="situacaoImovelSelecionado()">{{item.stiDescricao}}</mat-checkbox>
+                                }
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            }
+            @if(bloco){
+                <div class="cards">
+                    <app-blocos-caroucel [pageable]="pageable"></app-blocos-caroucel>           
+                </div>
+            }
+        </div>
+    }
+</div>

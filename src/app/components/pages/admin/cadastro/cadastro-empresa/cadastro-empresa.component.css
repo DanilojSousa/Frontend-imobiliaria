@@ -1,0 +1,157 @@
+.content_cadastro_usuario{
+    width: 100%;
+    display: flex;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    .button{
+        margin-bottom: 20px;
+        margin-top: 50px;
+        width: 90%;
+        .voltar{
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100%;
+            color: #DCE9F7;
+            cursor: pointer;
+            background-color: #007BFF;
+        }
+        .voltar:hover{
+            background-color: #0a69cf;
+        }
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        width:400px;
+        div{
+            display: flex;
+            flex-direction: column;
+            margin-top: 15px;
+            span{
+                color: red;
+            }
+            .error{
+                color: red;
+                font-size: 12px;
+                margin: 0px;
+            }
+            label{
+                width: 100%;
+                font-size: 14px;
+                padding-top: 8px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: unset;
+            }
+            input{
+                border-radius: 2px;
+                min-height: 40px;
+                border: 1px solid rgba(226, 228, 232, 0.8);
+                flex: 1 1 0%;
+                outline: none;
+                max-width: 100%;
+                font-size: inherit;
+                color: inherit;
+                min-width: 1px;
+                font-family: inherit;
+                line-height: 1.15em;
+                letter-spacing: 0.3px;
+                word-spacing: -0.75px;
+                padding-left: 5px;
+                color: #818181;
+            }
+            input::placeholder {
+                color: rgb(185, 183, 183); /* Cor desejada para o placeholder */
+                opacity: 1; /* Para garantir que a cor aplicada seja visível */
+            } 
+        }
+        img {
+            max-width: 150px;
+            max-height: 150px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+          }
+        .example-section{
+            display: flex;
+            .example-margin{
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+        .select{
+            label{
+                width: 100%;
+                font-size: 14px;
+                padding-top: 8px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: unset;
+            }
+            mat-select {
+                width: 100%;
+                height: 40px;
+                padding: 8px;
+                display: flex;
+                justify-content: center;
+                font-size: 14px;
+                box-sizing: border-box;
+                border: 1px solid rgba(226, 228, 232, 0.8);
+                border-radius: 3px;
+                color: #818181;
+                font-family: "Montserrat";
+                background: white;
+                color: rgb(60, 72, 88)!important;
+            }
+            select option{
+                color: #465261;
+                font-family: "Montserrat";
+            }  
+        }
+        .icones_imagens{
+            display: flex;
+            flex-direction: row;
+            .add_imagem, .delete_imagem{
+                width: 40px;
+                height: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 100%;
+                color: #DCE9F7;
+                cursor: pointer;
+                
+            }
+            .add_imagem{
+                background-color: #007BFF;
+                margin-right: 10px;
+            }
+            .delete_imagem{
+                background-color: red;
+            }
+            .add_imagem:hover{
+                background-color: #0a69cf;
+            }
+            .delete_imagem:hover{
+                background-color: rgb(206, 4, 4)
+            }
+        }
+        .imagem{
+            width: 150px;
+            height: 150px;
+            background-image: url("../../../../../../assets/user/user.png");
+            background-repeat: no-repeat;
+        }
+        
+        .button_salvar{
+            background-color: green;
+        }
+    }
+}

@@ -1,0 +1,110 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; display: flex; flex-direction: column; }
+body { margin: 0; font-family: Montserrat, "Roboto", "Open Sans"; }
+
+a, p, h1, h2, h3, h4, h5, h6, label{
+    font-family: Montserrat, "Trebuchet MS", serif;
+}
+a{
+    color: rgba(255, 255, 255, 0.7);
+}
+p, h5, h6{
+    color: #333333;
+}
+h1, h2, h3, h4{
+    font-family: Montserrat, "Trebuchet MS", serif!important;
+    line-height: 1.15em;
+    color: #4C2426;
+}
+.success-snackbar{
+    --mat-mdc-snack-bar-button-color: rgb(255, 255, 255)!important;
+    --mdc-snackbar-container-color: green!important;
+    --mdc-snackbar-supporting-text-color: white;
+}
+.error-snackbar {
+    --mat-mdc-snack-bar-button-color: rgb(255, 255, 255)!important;
+    --mdc-snackbar-container-color: rgb(223, 67, 67)!important;;
+    --mdc-snackbar-supporting-text-color: white;
+}
+.warning-snackbar {
+    --mat-mdc-snack-bar-button-color: rgb(255, 255, 255)!important;
+    --mdc-snackbar-container-color: rgb(224, 94, 34)!important;;
+    --mdc-snackbar-supporting-text-color: rgb(255, 255, 255);
+}
+.mdc-dialog--open .mat-mdc-dialog-surface, .mdc-dialog--closing .mat-mdc-dialog-surface{
+    background: hsla(0, 0%, 13%, 0.9);
+    border-radius: 0;
+}
+.mat-mdc-select-placeholder{
+    color: #4C2426!important;
+    font-family: "Montserrat"!important;
+    margin: 10px!important;
+}
+.mat-mdc-select-arrow{
+    color: #4C2426!important;
+    margin: 10px!important;
+}
+.cdk-overlay-pane:not(.mat-mdc-select-panel-above) div.mat-mdc-select-panel{
+    background-color: white!important;
+    margin: 10px!important;
+}
+.mat-mdc-option .mdc-list-item__primary-text{
+    color: #4C2426!important;
+}
+.mat-mdc-select-panel-above div.mat-mdc-select-panel{
+    background-color: #ffffff!important;
+}
+.mat-mdc-option .mat-icon, .mat-mdc-option .mat-pseudo-checkbox-full{
+    border: 2px solid #4C2426!important;
+}
+.mat-mdc-select-value-text{
+    margin: 10px!important;
+}
+.filtro_lateral{
+    .mat-mdc-select{
+        width: 95%!important;
+        border: 1px solid rgb(60, 72, 88,0.4)!important;
+        height: 40px!important;
+        display: flex!important;
+        color: rgb(60, 72, 88)!important;
+    }
+}
+
+.mdc-checkbox__background{
+    border-color: rgb(60, 72, 88,0.4)!important;
+}
+.mat-internal-form-field>label{
+    color: rgb(60, 72, 88)!important;
+}
+.custom-dialog-container {
+    display: flex!important;
+    flex-direction: column!important;
+  }
+
+  .custom-dialog-container .mat-dialog-content {
+    flex: 1!important;
+    overflow-y: auto!important;
+  }
+
+  .custom-dialog-container .mat-dialog-actions {
+    flex-shrink: 0!important;
+  }
+  .mat-mdc-radio-button .mdc-radio__native-control:enabled:not(:checked)+.mdc-radio__background .mdc-radio__outer-circle{
+    border-color: rgb(60, 72, 88,0.4)!important;
+  }
+  .mdc-checkbox:hover .mdc-checkbox__native-control:checked~.mdc-checkbox__background{
+    background-color: #4C2426!important;
+  }
+  .mdc-checkbox__native-control:checked~.mdc-checkbox__background, .mdc-checkbox__native-control:indeterminate~.mdc-checkbox__background{
+    background-color: #4C2426!important
+  }
+  .mat-pseudo-checkbox-full.mat-pseudo-checkbox-checked, .mat-pseudo-checkbox-full.mat-pseudo-checkbox-indeterminate{
+    background-color: #4C2426!important
+  }
+  .mat-mdc-progress-spinner .mdc-circular-progress__determinate-circle, .mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic{
+    stroke: #BB9D5C!important;
+  }
+button{
+    height: 40px!important;
+}

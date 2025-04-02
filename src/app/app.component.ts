@@ -11,12 +11,4 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class AppComponent{
 
-  constructor(private cookieService: CookieService){}
-
-  @HostListener('window:beforeunload', ['$event'])
-  clearToken(event: Event) {
-    localStorage.clear();
-    this.cookieService.deleteAll();
-  }
-
 }

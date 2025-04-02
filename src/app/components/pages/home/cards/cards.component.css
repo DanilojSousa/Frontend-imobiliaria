@@ -37,7 +37,7 @@
     border-radius: 20%;
   }
   #imagem-container .informacoes{
-    width: 40%;
+    width: 50%;
     height: auto;
   }
 
@@ -194,5 +194,18 @@
   }
   .img2{
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%);
+  }
+}
+@media (max-width: 400px ) {
+  #imagem-container{
+    margin-top: 50px;
+  }
+  .lancamento{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .arrow-left, .arrow-right {
+    display: none;
   }
 }

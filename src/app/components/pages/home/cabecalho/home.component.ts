@@ -1,3 +1,4 @@
+import { LoginService } from './../../../service/acesso/login.service';
 import { Component, HostListener, OnInit} from '@angular/core';
 import { ActivatedRoute, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { EmpresaDTO } from '../../../interface/geral/empresa';
@@ -6,7 +7,7 @@ import { Util } from '../../../utils/util';
 import {MatIconModule} from '@angular/material/icon';
 import { RodapeComponent } from "../../rodape/rodape.component";
 import {MatMenuModule} from '@angular/material/menu';
-import { SessaoService } from '../../../service/sessao/sessao.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
     selector: 'app-home',
@@ -18,12 +19,15 @@ export class HomeComponent implements OnInit {
 
   empresa: EmpresaDTO = new EmpresaDTO();
   mostrarMenuFixo = false;
+  logado: boolean = false;
   constructor(private empresaService: EmpresaService,
               private router: Router,
               private route: ActivatedRoute,
-              private sessaoService: SessaoService){}
+              private loginService: LoginService,
+              private cookieService: CookieService){}
 
-  ngOnInit(){  
+  ngOnInit(){
+    this.logado = this.loginService.logado;
     this.carregaEmpresa();
     this.route.queryParams.subscribe(params => {
       const sectionId = params['section'];
@@ -68,7 +72,7 @@ export class HomeComponent implements OnInit {
     const startPosition = window.pageYOffset;
     const targetPosition = target.getBoundingClientRect().top;
     const startTime = performance.now();
-  
+
     const animateScroll = (currentTime: number) => {
       const elapsedTime = currentTime - startTime;
       const run = this.ease(elapsedTime, startPosition, targetPosition, duration);
@@ -77,10 +81,10 @@ export class HomeComponent implements OnInit {
         requestAnimationFrame(animateScroll);
       }
     };
-  
+
     requestAnimationFrame(animateScroll);
   }
-  
+
   ease(t: number, b: number, c: number, d: number) {
     // Easing function for smoother scrolling
     t /= d / 2;
@@ -91,6 +95,11 @@ export class HomeComponent implements OnInit {
 
   acessoHome(id: string){
     this.router.navigate(["home"], { queryParams: { section: id } })
+  }
+
+  deslogar(){
+    this.logado = false;
+   this.loginService.deslogar();
   }
 }
 

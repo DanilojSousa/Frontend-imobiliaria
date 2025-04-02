@@ -1,5 +1,5 @@
 import { SessaoService } from './../../../service/sessao/sessao.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -37,7 +37,6 @@ export class LoginComponent implements OnInit {
   segundaSenha!: string;
   cpfEmail!: string;
   emailForm: any;
-
   constructor(private route: ActivatedRoute,
               private router: Router,
               private sessaoService: SessaoService,
@@ -98,7 +97,6 @@ export class LoginComponent implements OnInit {
       this.loginService.entrar(this.acesso).subscribe({
         next: () =>{
           this.mensagem.sucesso("Login efetuado com sucesso");
-          this.router.navigate(['acesso/sistema'])
           this.close();
         },
         error: (e) =>{

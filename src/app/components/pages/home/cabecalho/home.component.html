@@ -6,6 +6,9 @@
       <div><a routerLinkActive="selected" (click)="acessoHome('content_contato')" routerLink="#content_contato">Contato</a></div>
       <div><a routerLinkActive="selected" (click)="acessoHome('content_sobre')" routerLink="#content_sobre">Sobre</a></div>
     <div><a routerLinkActive="selected" routerLink="acesso/sistema">ACESSO SISTEMA</a></div>
+    @if(logado){
+      <div><a (click)="deslogar()">Sair</a></div>
+    }
   </div>
 }
 <div id="content_home">
@@ -38,6 +41,9 @@
           <div><a routerLinkActive="selected" (click)="acessoHome('content_contato')" routerLink="#">Contato</a></div>
           <div><a routerLinkActive="selected" (click)="acessoHome('content_sobre')" routerLink="#">Sobre</a></div>
           <div><a routerLinkActive="selected" routerLink="acesso/sistema">ACESSO SISTEMA</a></div>
+          @if(logado){
+            <div><a (click)="deslogar()">Sair</a></div>
+          }
       </div>
       <div class="menu_toggle">
         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
@@ -62,6 +68,11 @@
           <button mat-menu-item routerLinkActive="selected" routerLink="acesso/sistema">
             <span >ACESSO SISTEMA</span>
           </button>
+          @if(logado){
+            <button mat-menu-item (click)="deslogar()">
+              <span >Sair</span>
+            </button>
+          }
         </mat-menu>
       </div>
     </div>

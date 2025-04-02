@@ -29,7 +29,7 @@ export class LoginService {
             this.sessaoService.setUsrLogin(res.usrLogin);
             this.sessaoService.setRole(res.role);
             this.sessaoService.setToken(res.token);
-            //this.redirecionar()
+            this.redirecionar()
       }),
     )
   }
@@ -37,7 +37,8 @@ export class LoginService {
   redirecionar() {
     setTimeout(() => {
       window.location.reload();
-     }, 2000);
+    }, 50);
+    this.router.navigate(['acesso/sistema'])
   }
 
   setToken(token: any): void{
@@ -47,8 +48,8 @@ export class LoginService {
 
 deslogar() {
   localStorage.clear();
-  this.cookieService.deleteAll();
-  //this.router.navigate(['login']);
+  this.cookieService.delete('XAuthorization', '/');
+  this.router.navigate(['']);
 }
 
 get obterToken(): any {
@@ -62,6 +63,7 @@ get logado(): boolean {
 }
 sair(): void{
   this.cookieService.delete('XAuthorization');
+  localStorage.clear();
   this.sessaoService.inicializa();
   this.mensagem.sucesso("Deslogado com sucesso")
   this.router.navigate([''])

@@ -68,7 +68,7 @@ export class DetalheComponent implements OnInit {
 
   ngOnInit(): void {
     const imvCodigo = this.route.snapshot.paramMap.get('imvCodigo');
-    if(this.router.url.includes("pesquisa")){
+    if(this.router.url.includes("acesso/sistema")){
         this.buttonFlutuante = true;
     }
 
@@ -103,6 +103,7 @@ export class DetalheComponent implements OnInit {
     })
   }
   carregaUsuario() {
+    console.log(this.imovel.usuario.usrCodigo)
     this.usuarioService.getById(this.imovel.usuario.usrCodigo.toString()).subscribe({
       next:(res)=>{
         this.imovel.usuario = res;

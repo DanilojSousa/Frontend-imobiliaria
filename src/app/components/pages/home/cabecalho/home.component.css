@@ -9,7 +9,7 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  z-index: -1;  
+  z-index: -1;
 }
 .conteudo{
   display: flex;
@@ -121,7 +121,22 @@
 .socialContainer:hover .socialSvg {
   animation: slide-in-top 0.3s both;
 }
-
+.sair{
+  background-color: #4C2426;
+  display: flex;
+  border: 1px solid #ffffff;
+  border-radius: 100%;
+  width: 50px;
+  margin: 50px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+}
+.sair:hover{
+  background-color: #5e3638;
+}
 @keyframes slide-in-top {
   0% {
     transform: translateY(-50px);
@@ -154,7 +169,7 @@
   a:hover{
     cursor: pointer;
     color: #ffffff;
-  } 
+  }
 }
 @media(max-width: 900px) {
   .conteudo{
@@ -162,7 +177,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  
+
   }
   .linha{
     display: block!important;

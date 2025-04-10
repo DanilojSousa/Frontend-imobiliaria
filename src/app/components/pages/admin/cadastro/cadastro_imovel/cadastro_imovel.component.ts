@@ -138,7 +138,6 @@ export class CadastroImovelComponent implements OnInit {
     const situacaoImovel = this.listaSituacaoImovel.find(situacaoImovel => situacaoImovel.stiCodigo === this.imovel.situacaoImovel.stiCodigo);
     const localizacaoPraia = this.listaLocalizacaoPraia.find(localizacaoPraia => localizacaoPraia.lcpCodigo === this.imovel.localizacaoPraia?.lcpCodigo);
     const endereco = this.listaEndereco.find(endereco => endereco.endCodigo === this.imovel.endereco.endCodigo);
-    console.log(this.imovel)
     const areaLazer = this.listaAreaLazer.filter(areaLazer => this.imovel.areaLazer?.some(a => a.arlCodigo === areaLazer.arlCodigo)) || [];
     const proximidade = this.listaProximidade.filter(proximdade => this.imovel.proximidade?.some(p => p.prxCodigo === proximdade.prxCodigo)) || [];
     // Atualiza as propriedades do objeto imovel

@@ -17,17 +17,17 @@ export class ImovelService {
   constructor(private http: HttpClient) { }
 
   pesquisaFiltrada(pesquisa: PesquisaFiltradaImovel): Observable<Pageable<Imovel>> {
-    return this.http.post<Pageable<Imovel>>(environment.api_url + "/imovel/getAllFilter", pesquisa).pipe(
+    return this.http.post<Pageable<Imovel>>(environment.api_url + "/imovel/getAllFilter", pesquisa, { withCredentials: true }).pipe(
       map((obj) => obj),
     );
   }
   getAllLancamento(): Observable<ImovelLancamento[]> {
-    return this.http.get<ImovelLancamento[]>(environment.api_url + "/imovel/getAllLancamento").pipe(
+    return this.http.get<ImovelLancamento[]>(environment.api_url + "/imovel/getAllLancamento", { withCredentials: true }).pipe(
       map((obj) => obj),
     );
   }
   getAllDestaque(): Observable<ImovelLancamento[]> {
-    return this.http.get<ImovelLancamento[]>(environment.api_url + "/imovel/getAllDestaque").pipe(
+    return this.http.get<ImovelLancamento[]>(environment.api_url + "/imovel/getAllDestaque", { withCredentials: true }).pipe(
       map((obj) => obj),
       catchError(error => {
         console.error('Erro ao buscar imóveis em destaque:', error);
@@ -36,10 +36,10 @@ export class ImovelService {
     );
   }
   salvar(imovel: Imovel): Observable<Imovel> {
-    return this.http.post<Imovel>(environment.api_url + "/imovel/salvar", imovel);
+    return this.http.post<Imovel>(environment.api_url + "/imovel/salvar", imovel, { withCredentials: true });
   }
   getById(imvCodigo: number): Observable<Imovel> {
-    return this.http.get<Imovel>(environment.api_url + "/imovel/getById?imvCodigo="+imvCodigo).pipe(
+    return this.http.get<Imovel>(environment.api_url + "/imovel/getById?imvCodigo="+imvCodigo, { withCredentials: true }).pipe(
       map((obj) => obj),
       catchError(error => {
         console.error('Erro ao buscar imóveis em destaque:', error);
